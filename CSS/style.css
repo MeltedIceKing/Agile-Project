@@ -1,0 +1,62 @@
+* {
+    background-color: #000000;
+    color: #F8DA45;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.container-welcome, .container-start {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 10rem 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+            "h"
+            "m";
+}
+
+
+.header {
+    grid-area: h;
+    font-size: 15px;
+}
+
+
+.logo-start {
+    width: 50px;
+    height: 70px;
+    float: left;
+}
+
+.logo-welcome {
+    width: 85px;
+    height: 120px;
+}
+
+.main {
+    grid-area: m;
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+.get-started {
+    background-color: grey;
+    color: #000000;
+    border-radius: 4px;
+    text-decoration: none;
+    width: 100px;
+    height: 30px;
+}
+
+
+.new-project, .view-project {
+    text-decoration: none;
+    border-color: #F8DA45;
+    border-width: 2px;
+    height: 40px;
+    width: 200px;
+    border-radius: 4px;
+}

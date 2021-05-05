@@ -29,10 +29,4 @@ app.get("/codeman", codemanController.welcome)
 
 app.get("/create", codeManController.create)
 
-app.listen(3001, function () {
-    console.log(
-        "Server running. Visist localhost:3001/codeman in your browser"
-    );
-});
-
 module.exports = app

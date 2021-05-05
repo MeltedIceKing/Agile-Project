@@ -34,3 +34,5 @@ app.listen(3001, function () {
         "Server running. Visist localhost:3001/codeman in your browser"
     );
 });
+
+module.exports = app

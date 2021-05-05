@@ -1,5 +1,7 @@
+const addFileButton = document.querySelector('.add-file-buton');
+
 function newfile() {
-    let newNote = document.querySelector(".input")
+    let newNote = document.querySelector(".add-file")
     newNote.insertAdjacentHTML("beforeend", `
     <label for="file-name">File name</label>
     <input type="text" id="file-name" name="file-name"><br>
@@ -54,4 +56,4 @@ function addMethod() {
     </div>`);
 }
 
-
+addFileButton.addEventListener('click', newfile);

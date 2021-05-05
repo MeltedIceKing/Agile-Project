@@ -6,6 +6,7 @@ const codemanController = require("./controller/codeman_controller");
 
 // This starts a session
 const session = require("express-session");
+const codeManController = require("./controller/codeman_controller");
 app.use(
   session({
     secret: "secret",
@@ -25,6 +26,8 @@ app.set("view engine", "ejs");
 
 // Routes
 app.get("/codeman", codemanController.welcome)
+
+app.get("/create", codeManController.create)
 
 app.listen(3001, function () {
     console.log(

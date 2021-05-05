@@ -4,7 +4,7 @@
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.container-welcome, .container-start {
+.container-welcome, .container-start, .container-create {
     display: grid;
     width: 100vw;
     height: 100vh;
@@ -15,12 +15,10 @@
             "m";
 }
 
-
 .header {
     grid-area: h;
     font-size: 15px;
 }
-
 
 .logo-start {
     width: 50px;
@@ -51,8 +49,7 @@ h2 {
     height: 30px;
 }
 
-
-.new-project, .view-project {
+.new-project, .view-project, .toggle-button {
     text-decoration: none;
     border-color: #F8DA45;
     border-width: 2px;

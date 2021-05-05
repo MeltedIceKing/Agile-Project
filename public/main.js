@@ -1,6 +1,4 @@
-const addFileButton = document.querySelector('.add-file-buton');
-
-
+const addFileButton = document.querySelector('.add-file-button');
 
 function newfile() {
     let newNote = document.querySelector(".add-file")

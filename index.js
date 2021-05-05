@@ -26,8 +26,5 @@ app.set("view engine", "ejs");
 // Routes
 app.get("/codeman", codemanController.welcome)
 
-app.listen(3001, function () {
-    console.log(
-        "Server running. Visist localhost:3001/codeman in your browser"
-    );
-});
+
+module.exports = app

@@ -9,6 +9,5 @@ required npm installations
 - npm install express-ejs-layouts
 - npm install --save-dev jest supertest
 - npm install jest-express
-- npm install jsdom
 
 Once you have these installed you can run all the test files simply by using the command: "npm test" from the root directory.

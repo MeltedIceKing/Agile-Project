@@ -26,32 +26,34 @@ describe('Test main.js (create page controller)', () => {
 
         addFileButtons[0].click();
 
-        // Grab all the new stuff that should have been created
-        newFileDiv = document.getElementsByClassName('file-div-0');
-        
-        // Test that this exists
-        expect(newFileDiv[0]).toBeDefined();
-        expect(newFileDiv).toHaveLength(1);
+        setTimeout(() => {
+            // Grab all the new stuff that should have been created
+            newFileDiv = document.getElementsByClassName("file-div-0");
 
-        // Check that it contains the correct stuff
-        newFileDivText = newFileDiv[0].outerHTML;
+            // Test that this exists
+            expect(newFileDiv[0]).toBeDefined();
+            expect(newFileDiv).toHaveLength(1);
 
-        expect(newFileDivText).toContain('<div');
-        expect(newFileDivText).toContain('<label');
-        expect(newFileDivText).toContain('<input');
-        expect(newFileDivText).toContain('<button');
+            // Check that it contains the correct stuff
+            newFileDivText = newFileDiv[0].outerHTML;
 
-        addClassButtons = document.getElementsByClassName('add-class-button');
-        expect(addClassButtons).toHaveLength(1);
+            expect(newFileDivText).toContain("<div");
+            expect(newFileDivText).toContain("<label");
+            expect(newFileDivText).toContain("<input");
+            expect(newFileDivText).toContain("<button");
 
-        // Check that clicking the button again does not add to the "file-div-0" classlist
-        addFileButtons[0].click();
-        newFileDiv = document.getElementsByClassName('file-div-0');
-        expect(newFileDiv).toHaveLength(1);
+            addClassButtons = document.getElementsByClassName("add-class-button");
+            expect(addClassButtons).toHaveLength(1);
 
-        // Test that there is now an element with the class "file-div-1"
-        const otherNewFileDiv = document.getElementsByClassName('file-div-1');
-        expect(otherNewFileDiv).toHaveLength(1);
+            // Check that clicking the button again does not add to the "file-div-0" classlist
+            addFileButtons[0].click();
+            newFileDiv = document.getElementsByClassName("file-div-0");
+            expect(newFileDiv).toHaveLength(1);
+
+            // Test that there is now an element with the class "file-div-1"
+            const otherNewFileDiv = document.getElementsByClassName("file-div-1");
+            expect(otherNewFileDiv).toHaveLength(1);
+        }, 100);
     })
 
     it('Test new class button', () => {
@@ -71,31 +73,33 @@ describe('Test main.js (create page controller)', () => {
 
         addFileButtons[0].click();
 
-        // Grab all the new stuff that should have been created
-        newFileDiv = document.getElementsByClassName('file-div-0');
-        
-        // Test that this exists
-        expect(newFileDiv[0]).toBeDefined();
-        expect(newFileDiv).toHaveLength(1);
+        setTimeout(() => {
+            // Grab all the new stuff that should have been created
+            newFileDiv = document.getElementsByClassName("file-div-0");
 
-        // Check that it contains the correct stuff
-        newFileDivText = newFileDiv[0].outerHTML;
+            // Test that this exists
+            expect(newFileDiv[0]).toBeDefined();
+            expect(newFileDiv).toHaveLength(1);
 
-        expect(newFileDivText).toContain('<div');
-        expect(newFileDivText).toContain('<label');
-        expect(newFileDivText).toContain('<input');
-        expect(newFileDivText).toContain('<button');
+            // Check that it contains the correct stuff
+            newFileDivText = newFileDiv[0].outerHTML;
 
-        addClassButtons = document.getElementsByClassName('add-class-button');
-        expect(addClassButtons).toHaveLength(1);
+            expect(newFileDivText).toContain("<div");
+            expect(newFileDivText).toContain("<label");
+            expect(newFileDivText).toContain("<input");
+            expect(newFileDivText).toContain("<button");
 
-        // Check that clicking the button again does not add to the "file-div-0" classlist
-        addFileButtons[0].click();
-        newFileDiv = document.getElementsByClassName('file-div-0');
-        expect(newFileDiv).toHaveLength(1);
+            addClassButtons = document.getElementsByClassName("add-class-button");
+            expect(addClassButtons).toHaveLength(1);
 
-        // Test that there is now an element with the class "file-div-1"
-        const otherNewFileDiv = document.getElementsByClassName('file-div-1');
-        expect(otherNewFileDiv).toHaveLength(1);
+            // Check that clicking the button again does not add to the "file-div-0" classlist
+            addFileButtons[0].click();
+            newFileDiv = document.getElementsByClassName("file-div-0");
+            expect(newFileDiv).toHaveLength(1);
+
+            // Test that there is now an element with the class "file-div-1"
+            const otherNewFileDiv = document.getElementsByClassName("file-div-1");
+            expect(otherNewFileDiv).toHaveLength(1);
+        }, 100);
     })
 })

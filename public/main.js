@@ -29,10 +29,10 @@ function newfile() {
     inputFileName.append(newBreak)
 
     divAddClass = document.createElement("div");
-    divAddClass.classList.add(`add-class-${classCounter}`);
+    divAddClass.classList.add(`add-class-${fileCounter}`);
     
     buttonAddClass = document.createElement("button");
-    buttonAddClass.classList.add(`${classCounter}`);
+    buttonAddClass.classList.add(`${fileCounter}`);
     buttonAddClass.classList.add(`add-class-button`);
     buttonAddClass.setAttribute("type", "button")
     buttonAddClass.innerHTML = "Add Class +";

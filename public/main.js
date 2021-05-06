@@ -33,6 +33,7 @@ function newfile() {
     
     buttonAddClass = document.createElement("button");
     buttonAddClass.classList.add(`${classCounter}`);
+    buttonAddClass.classList.add(`add-class-button`);
     buttonAddClass.setAttribute("type", "button")
     buttonAddClass.innerHTML = "Add Class +";
 
@@ -174,7 +175,7 @@ docAddFile = document.querySelector('.add-file');
 docAddFile.addEventListener('click', (e) => {
     AddFileInnerHtml = e.target.innerHTML;
     if (AddFileInnerHtml == "Add Class +"){
-        classNum = e.target.className;
+        classNum = e.target.className.substring(0,1);
         addClass(classNum);
         classCounter = classCounter + 1;
         console.log(classCounter);

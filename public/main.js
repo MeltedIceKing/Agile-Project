@@ -6,6 +6,7 @@ methodCounter = 0;
 fileList = [];
 
 // Gives the user the option to add a File with an add Class Button
+// This is the start of all dynamic content for the create page
 function newfile() {
     fileList.push(fileCounter);
     let newFile = document.querySelector(".add-file");

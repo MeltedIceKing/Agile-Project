@@ -12,7 +12,8 @@
     "supertest": "^6.1.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon start.js"
   },
   "jest": {
     "testEnvironment": "jsdom",

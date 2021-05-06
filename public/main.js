@@ -71,6 +71,7 @@ function addClass(classnumber) {
 
     buttonAddProperty = document.createElement("button");
     buttonAddProperty.classList.add(`${classCounter}`);
+    buttonAddProperty.classList.add(`add-property-button`);
     buttonAddProperty.setAttribute("type", "button");
     buttonAddProperty.innerHTML = "Add Property +";
 
@@ -81,6 +82,7 @@ function addClass(classnumber) {
 
     buttonAddMethod = document.createElement("button");
     buttonAddMethod.classList.add(`${classCounter}`);
+    buttonAddMethod.classList.add(`add-method-button`);
     buttonAddMethod.setAttribute("type", "button");
     buttonAddMethod.innerHTML = "Add Method +";
 
@@ -108,6 +110,7 @@ function addProperty(propnumber) {
     inputPropertyName.setAttribute("type", "text");
     inputPropertyName.setAttribute("id", "property-name");
     inputPropertyName.setAttribute("name", "property-name");
+    inputPropertyName.classList.add("property-input");
 
     newProperty.append(labelPropertyName);
     newProperty.append(inputPropertyName);
@@ -128,6 +131,7 @@ function addMethod(methodnumber) {
     inputMethodName.setAttribute("type", "text");
     inputMethodName.setAttribute("id", "method-name");
     inputMethodName.setAttribute("name", "method-name");
+    inputMethodName.classList.add("method-input");
 
     labelMethodRT = document.createElement("label");
     labelMethodRT.setAttribute("for", "method-return-type");
@@ -181,12 +185,12 @@ docAddFile.addEventListener('click', (e) => {
         console.log(classCounter);
     }
     if (AddFileInnerHtml == "Add Property +"){
-        propNum = e.target.className;
+        propNum = e.target.className.substring(0,1);
         addProperty(propNum);
         propCounter = propCounter + 1;
     }
     if (AddFileInnerHtml == "Add Method +"){
-        methodNum = e.target.className;
+        methodNum = e.target.className.substring(0,1);
         addMethod(methodNum);
         methodCounter = methodCounter + 1;
     }

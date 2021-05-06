@@ -30,7 +30,7 @@ describe('Test codeman controller', () => {
 
     describe('codeman_controller.create', () => {
 
-        it('should call res.create', () => {
+        it('should call res.render', () => {
             codeman_controller.create(req, res);
 
             expect(res.render).toHaveBeenCalled();

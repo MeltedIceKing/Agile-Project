@@ -31,6 +31,7 @@ function newfile() {
     divAddClass.classList.add(`add-class-${classCounter}`);
     
     buttonAddClass = document.createElement("button");
+    buttonAddClass.classList.add(`add-class-button`);
     buttonAddClass.classList.add(`${classCounter}`);
     buttonAddClass.setAttribute("type", "button")
     buttonAddClass.innerHTML = "Add Class +";
@@ -69,6 +70,7 @@ function addClass(classnumber) {
 
     buttonAddProperty = document.createElement("button");
     buttonAddProperty.classList.add(`${classCounter}`);
+    buttonAddProperty.classList.add(`add-property-button`);
     buttonAddProperty.setAttribute("type", "button");
     buttonAddProperty.innerHTML = "Add Property +";
 

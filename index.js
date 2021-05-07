@@ -25,9 +25,10 @@ app.use(ejsLayouts);
 app.set("view engine", "ejs");
 
 // Routes
-app.get("/codeman", codemanController.welcome)
+app.get("/codeman", codemanController.welcome);
 
-app.get("/create", codeManController.create)
+app.get("/create", codeManController.create);
 
-app.get("/signin", codeManController.singin)
+app.get("/signin", codeManController.signin);
+
 module.exports = app

@@ -120,6 +120,7 @@ function addProperty(propnumber) {
     publicPropRadio.setAttribute("id", "public-prop");
     publicPropRadio.setAttribute("name", "prop-type");
     publicPropRadio.setAttribute("value", "public-property");
+    publicPropRadio.classList.add("create-checkbox");
     
     labelPrivateProp = document.createElement("label");
     labelPrivateProp.setAttribute("for", "private-prop");
@@ -129,6 +130,7 @@ function addProperty(propnumber) {
     privatePropRadio.setAttribute("id", "private-prop");
     privatePropRadio.setAttribute("name", "prop-type");
     privatePropRadio.setAttribute("value", "private-property");
+    privatePropRadio.classList.add("create-checkbox");
 
     labelProtProp = document.createElement("label");
     labelProtProp.setAttribute("for", "prot-prop");
@@ -138,6 +140,7 @@ function addProperty(propnumber) {
     protPropRadio.setAttribute("id", "prot-prop");
     protPropRadio.setAttribute("name", "prop-type");
     protPropRadio.setAttribute("value", "protected-property");
+    protPropRadio.classList.add("create-checkbox");
 
     newProperty.append(labelPropertyName);
     newProperty.append(inputPropertyName);

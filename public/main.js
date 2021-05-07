@@ -1,11 +1,10 @@
 const addFileButton = document.querySelector('.add-file-button');
-fileCounter = 0;
-classCounter = 0;
-propCounter = 0;
-methodCounter = 0;
+fileCounter = 0;    //counts amount of files created
+classCounter = 0;   //counts amount of classes created
+propCounter = 0;    //counts amount of properties created
+methodCounter = 0;  //cound amount of methods created
 
 // Gives the user the option to add a File with an add Class Button
-// This is the start of all dynamic content for the create page
 function newfile() {
     let newFile = document.querySelector(".add-file");
 
@@ -19,7 +18,7 @@ function newfile() {
     
     inputFileName = document.createElement("input");
     inputFileName.setAttribute("type", "text");
-    inputFileName.setAttribute("id", "file-name");
+    inputFileName.setAttribute("id", `file-name-${fileCounter}`);
     inputFileName.setAttribute("name", "file-name");
 
     newBreak = document.createElement("br");
@@ -37,12 +36,10 @@ function newfile() {
 
     divAddClass.append(buttonAddClass);
     divAddClass.append(newBreak);
-
     fileDiv.append(labelFileName);
     fileDiv.append(inputFileName);
     fileDiv.append(divAddClass);
     fileDiv.append(newBreak);
-
     newFile.append(fileDiv);
     fileCounter = fileCounter + 1;
 }
@@ -90,7 +87,6 @@ function addClass(classnumber) {
     divSmallClass.append(inputClassName);
     divSmallClass.append(divAddProperty);
     divSmallClass.append(divAddMethod);
-
     newClass.append(divSmallClass);
     newClass.append(newBreak);
 }

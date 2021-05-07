@@ -112,9 +112,42 @@ function addProperty(propnumber) {
     inputPropertyName.setAttribute("name", "property-name");
     inputPropertyName.classList.add("property-input");
 
+    labelPublicProp = document.createElement("label");
+    labelPublicProp.setAttribute("for", "public-prop");
+    labelPublicProp.innerHTML = "Pub"
+    publicPropRadio = document.createElement("input");
+    publicPropRadio.setAttribute("type", "checkbox");
+    publicPropRadio.setAttribute("id", "public-prop");
+    publicPropRadio.setAttribute("name", "prop-type");
+    publicPropRadio.setAttribute("value", "public-property");
+    
+    labelPrivateProp = document.createElement("label");
+    labelPrivateProp.setAttribute("for", "private-prop");
+    labelPrivateProp.innerHTML = "Priv"
+    privatePropRadio = document.createElement("input");
+    privatePropRadio.setAttribute("type", "checkbox");
+    privatePropRadio.setAttribute("id", "private-prop");
+    privatePropRadio.setAttribute("name", "prop-type");
+    privatePropRadio.setAttribute("value", "private-property");
+
+    labelProtProp = document.createElement("label");
+    labelProtProp.setAttribute("for", "prot-prop");
+    labelProtProp.innerHTML = "Prot"
+    protPropRadio = document.createElement("input");
+    protPropRadio.setAttribute("type", "checkbox");
+    protPropRadio.setAttribute("id", "prot-prop");
+    protPropRadio.setAttribute("name", "prop-type");
+    protPropRadio.setAttribute("value", "protected-property");
+
     newProperty.append(labelPropertyName);
     newProperty.append(inputPropertyName);
-    newProperty.append(newBreak)
+    newProperty.append(publicPropRadio);
+    newProperty.append(labelPublicProp);
+    newProperty.append(privatePropRadio);
+    newProperty.append(labelPrivateProp);
+    newProperty.append(protPropRadio);
+    newProperty.append(labelProtProp);
+    newProperty.append(newBreak);
 }
 
 //Adds a method and it's inputs and labels

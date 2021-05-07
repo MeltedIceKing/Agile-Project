@@ -20,13 +20,14 @@ function newfile() {
     inputFileName.setAttribute("type", "text");
     inputFileName.setAttribute("id", `file-name-${fileCounter}`);
     inputFileName.setAttribute("name", "file-name");
+    inputFileName.setAttribute("size", "52");
 
     newBreak = document.createElement("br");
 
     inputFileName.append(newBreak)
 
     divAddClass = document.createElement("div");
-    divAddClass.classList.add(`add-class-${fileCounter}`);
+    divAddClass.classList.add(`add-class-${fileCounter}`, "add-class");
     
     buttonAddClass = document.createElement("button");
     buttonAddClass.classList.add(`${fileCounter}`);
@@ -60,9 +61,10 @@ function addClass(classnumber) {
     inputClassName.setAttribute("type", "text");
     inputClassName.setAttribute("id", "class-name");
     inputClassName.setAttribute("name", "class-name");
+    inputClassName.setAttribute("size", "46.5");
 
     divAddProperty = document.createElement("div");
-    divAddProperty.classList.add(`add-property-${classCounter}`);
+    divAddProperty.classList.add(`add-property-${classCounter}`, "add-property");
 
     buttonAddProperty = document.createElement("button");
     buttonAddProperty.classList.add(`${classCounter}`);
@@ -73,7 +75,7 @@ function addClass(classnumber) {
     divAddProperty.append(buttonAddProperty);
 
     divAddMethod = document.createElement("div");
-    divAddMethod.classList.add(`add-method-${classCounter}`);
+    divAddMethod.classList.add(`add-method-${classCounter}`, "add-method");
 
     buttonAddMethod = document.createElement("button");
     buttonAddMethod.classList.add(`${classCounter}`);
@@ -161,6 +163,7 @@ function addMethod(methodnumber) {
     inputMethodName.setAttribute("type", "text");
     inputMethodName.setAttribute("id", "method-name");
     inputMethodName.setAttribute("name", "method-name");
+    inputMethodName.setAttribute("size", "34.5");
     inputMethodName.classList.add("method-input");
 
     labelMethodRT = document.createElement("label");
@@ -171,6 +174,8 @@ function addMethod(methodnumber) {
     inputMethodRT.setAttribute("type", "text");
     inputMethodRT.setAttribute("id", "method-return-type");
     inputMethodRT.setAttribute("name", "method-return-type");
+    inputMethodRT.setAttribute("size", "34.5");
+    inputMethodRT.classList.add("method-return-input");
 
     labelMethodDef = document.createElement("label");
     labelMethodDef.setAttribute("for", "method-definition");
@@ -180,6 +185,8 @@ function addMethod(methodnumber) {
     inputMethodDef.setAttribute("type", "text");
     inputMethodDef.setAttribute("id", "method-definition");
     inputMethodDef.setAttribute("name", "method-definition");
+    inputMethodDef.setAttribute("size", "34.5");
+    inputMethodDef.classList.add("method-def-input");
 
     labelMethodArgs = document.createElement("label");
     labelMethodArgs.setAttribute("for", "method-arguments");
@@ -189,6 +196,8 @@ function addMethod(methodnumber) {
     inputMethodArgs.setAttribute("type", "text");
     inputMethodArgs.setAttribute("id", "method-arguments");
     inputMethodArgs.setAttribute("name", "arguments");
+    inputMethodArgs.setAttribute("size", "34.5");
+    inputMethodArgs.classList.add("method-args-input");
 
     newMethod.append(labelMethodName);
     newMethod.append(inputMethodName);

@@ -61,8 +61,24 @@ a {
     grid-area: s;
 }
 
-.add-class-0, .add-property-0, .add-method-0  {
+.add-class, .add-property, .add-method {
     margin-left: 30px;
+}
+
+.method-input {
+    margin-left: 40px;
+}
+
+.method-return-input {
+    margin-left: 3.5px;
+}
+
+.method-def-input {
+    margin-left: 15px;
+}
+
+.method-args-input {
+    margin-left: 6.5px;
 }
 
 h2 {

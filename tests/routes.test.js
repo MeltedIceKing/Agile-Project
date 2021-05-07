@@ -4,7 +4,7 @@ const supertest = require('supertest');
 const request = supertest(app);
 
 
-describe('Test each GET route', () => {
+describe('Test each GET route with no user logged in', () => {
 
     // First test - invalid route
     it("Test GET invalid route", async () => {
@@ -34,6 +34,14 @@ describe('Test each GET route', () => {
     it("Test GET /create route", async () => {
 
         const res = await request.get("/create");
+
+        expect(res.status).toBe(200);
+    })
+
+    // Fifth test - /signin route
+    it("Test GET /signin route", async () => {
+
+        const res = await request.get("/signin");
 
         expect(res.status).toBe(200);
     })

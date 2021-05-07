@@ -41,7 +41,7 @@ describe('Test codeman controller', () => {
     describe('codeman_controller.sigin', () => {
 
         it('should call res.render', () => {
-            codeman_controller.create(req, res);
+            codeman_controller.signin(req, res);
 
             expect(res.render).toHaveBeenCalled();
             expect(res.render).toHaveBeenCalledWith('codeman/signin');

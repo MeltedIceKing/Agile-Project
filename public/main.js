@@ -199,6 +199,7 @@ function addMethod(methodnumber) {
     newMethod.append(labelMethodArgs);
     newMethod.append(inputMethodArgs);
     newMethod.append(newBreak);
+
 }
 
 // This waits for the user to click the newfile button

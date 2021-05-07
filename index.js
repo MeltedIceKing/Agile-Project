@@ -29,4 +29,5 @@ app.get("/codeman", codemanController.welcome)
 
 app.get("/create", codeManController.create)
 
+app.get("/signin", codeManController.singin)
 module.exports = app

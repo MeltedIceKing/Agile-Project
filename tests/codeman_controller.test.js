@@ -37,4 +37,16 @@ describe('Test codeman controller', () => {
             expect(res.render).toHaveBeenCalledWith('codeman/create');
         })
     });
+
+    describe('codeman_controller.sigin', () => {
+
+        it('should call res.render', () => {
+            codeman_controller.create(req, res);
+
+            expect(res.render).toHaveBeenCalled();
+            expect(res.render).toHaveBeenCalledWith('codeman/signin');
+        })
+    });
+    
+
 });

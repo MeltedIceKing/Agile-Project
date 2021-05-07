@@ -8,11 +8,26 @@
     display: grid;
     width: 100vw;
     height: 100vh;
+}
+
+.container-welcome, .container-start {
     grid-template-rows: 10rem 1fr;
     grid-template-columns: 1fr;
     grid-template-areas: 
             "h"
             "m";
+}
+
+.container-create {
+    padding-top: 50px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-areas: 
+            "m s";
+}
+
+a {
+    text-decoration: none;
 }
 
 .header {
@@ -34,6 +49,20 @@
 .main {
     grid-area: m;
     text-align: center;
+}
+
+.container-create button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.add-file {
+    grid-area: s;
+}
+
+.add-class-0, .add-property-0, .add-method-0  {
+    margin-left: 30px;
 }
 
 h2 {

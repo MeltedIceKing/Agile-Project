@@ -98,7 +98,7 @@ function addProperty(propnumber) {
 
     labelPropertyName = document.createElement("label");
     labelPropertyName.setAttribute("for", "property-name");
-    labelPropertyName.innerHTML = "Property name: ";
+    labelPropertyName.innerHTML = "<br> Property name: ";
     
     inputPropertyName = document.createElement("input");
     inputPropertyName.setAttribute("type", "text");
@@ -155,7 +155,7 @@ function addMethod(methodnumber) {
 
     labelMethodName = document.createElement("label");
     labelMethodName.setAttribute("for", "method-name");
-    labelMethodName.innerHTML = "Method name: ";
+    labelMethodName.innerHTML = "<br>Method name: ";
     
     inputMethodName = document.createElement("input");
     inputMethodName.setAttribute("type", "text");
@@ -165,7 +165,7 @@ function addMethod(methodnumber) {
 
     labelMethodRT = document.createElement("label");
     labelMethodRT.setAttribute("for", "method-return-type");
-    labelMethodRT.innerHTML = "Method return type: ";
+    labelMethodRT.innerHTML = "<br>Method return type: ";
 
     inputMethodRT = document.createElement("input");
     inputMethodRT.setAttribute("type", "text");
@@ -174,7 +174,7 @@ function addMethod(methodnumber) {
 
     labelMethodDef = document.createElement("label");
     labelMethodDef.setAttribute("for", "method-definition");
-    labelMethodDef.innerHTML = "Method definition: ";
+    labelMethodDef.innerHTML = "<br>Method definition: ";
 
     inputMethodDef = document.createElement("input");
     inputMethodDef.setAttribute("type", "text");
@@ -183,7 +183,7 @@ function addMethod(methodnumber) {
 
     labelMethodArgs = document.createElement("label");
     labelMethodArgs.setAttribute("for", "method-arguments");
-    labelMethodArgs.innerHTML = "Method arguments: ";
+    labelMethodArgs.innerHTML = "<br>Method arguments: ";
 
     inputMethodArgs = document.createElement("input");
     inputMethodArgs.setAttribute("type", "text");

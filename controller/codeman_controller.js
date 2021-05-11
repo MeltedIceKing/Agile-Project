@@ -1,14 +1,11 @@
 let codeManController = {
     welcome: (req, res) => {
-        res.render("codeman/welcome")
+        let userName = req.user.name;
+        res.render("codeman/welcome", {nameUser: userName});
     },
 
     create: (req, res) => {
-        res.render("codeman/create")
-    },
-
-    signin: (req, res) => {
-        res.render("codeman/signin")
+        res.render("codeman/create");
     },
 };
 

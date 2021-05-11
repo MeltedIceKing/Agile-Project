@@ -11,6 +11,7 @@ required npm installations
 - npm install jest-express
 - npm install passport
 - npm install passport-local
+- npm install node-fetch
 
 Once you have these installed you can run all the test files simply by using the command: "npm test" from the root directory.
 

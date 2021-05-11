@@ -157,3 +157,36 @@ hr {
     color: grey;
     margin-top: 50px;
 }
+
+.register {
+    box-sizing: border-box;
+    border: 2px solid #F8DA45;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+}
+
+.register-inputs {
+    margin-top: 30px;
+    margin-left: 15px;
+    text-align: left;
+
+}
+
+.register-button {
+    margin-top: 10px;
+    background-color: grey;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.signin-page-button {
+    border: none;
+    color: grey;
+    margin-top: 50px;
+}
+

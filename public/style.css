@@ -106,3 +106,54 @@ h2 {
 .nav-skele {
     padding-top: 1.5%;
 }
+
+.sign-in {
+    box-sizing: border-box;
+    border: 2px solid #F8DA45;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+}
+
+.signin-inputs {
+    margin-top: 30px;
+    margin-left: 15px;
+    text-align: left;
+
+}
+
+hr {
+    height: 4px;
+    background-color: #F8DA45;
+    border: none;
+    border-radius: 3px;
+    width: 90%;
+    
+}
+
+#username, #password {
+    text-decoration: none;
+    border-color: #F8DA45;
+    border-width: 2px;
+    border-radius: 4px;
+    width: 90%;
+    margin-bottom: 10px;
+
+}
+
+.signin-button {
+    margin-top: 10px;
+    background-color: grey;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.new-register-button {
+    border: none;
+    color: grey;
+    margin-top: 50px;
+}

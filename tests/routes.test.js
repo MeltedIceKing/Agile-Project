@@ -1,80 +1,93 @@
 
 const app = require('../index');
-const supertest = require('supertest');
-const request = supertest(app);
+const request = require('supertest');
+const server = request.agent(app);
 
 
-let token;
-const user = "testuser";
-const pw = "testpassword";
+const loginUser = () => {
+    return function(done) {
+        server.post("/signin")
+        .send({ email: "test@test.com", password: "test"})
+        .expect(302)
+        .expect("Location", "/welcome")
+        .then(() => done());
+    }
+}
 
-beforeAll((done) => {
-    request
-        .post('/login')
-        .send({
-            username: user,
-            password: pw,
-        })
-        .end((err, response) => {
-            token = response.body.token; // save the token
-            done();
-        });
-});
+describe("Test each GET route with no user logged in", function() {
 
-
-describe('Test each GET route', () => {
-
-    // First test - invalid route
-    it("Test GET invalid route - should find nothing", async () => {
-        const res = await request.get("/thisroutedoesnotexist");
-        expect(res.status).toBe(404);
+    it("Test GET invalid route - should find nothing", function(done) {
+        server.get("/thisroutedoesnotexist")
+            .then((res) => {
+                expect(res.statusCode).toBe(404);
+            }).then(() => done())
     })
 
-    // Second test - / route with no login
-    it("Test GET / route - no user logged in - should work", async () => {
-        const res = await request.get("/");
-        expect(res.status).toBe(200);
+    it("Test / route - should work", function(done) {
+        server.get("/")
+            .then((res) => {
+                expect(res.statusCode).toBe(200);
+            }).then(() => done())
     })
 
-    // Third test - / route with login
-    it("Test GET / route - logged in - should work", async () => {
-        const res = await request.get("/").set('Authorization', `Bearer ${token}`)
-        expect(res.status).toBe(200);
+    it("Test /create route - should redirect", function(done) {
+        server.get("/create")
+            .then((res) => {
+                expect(res.statusCode).toBe(302);
+            }).then(() => done())
     })
 
-    // Fourth test - /codeman route with no login
-    it("Test GET /codeman route - no user logged in - should redirect", async () => {
-        const res = await request.get("/codeman");
-        expect(res.status).toBe(300);
+    it("Test /signin route - should work", function(done) {
+        server.get("/signin")
+            .then((res) => {
+                expect(res.statusCode).toBe(200);
+            }).then(() => done())
     })
 
-    // Fifth test - /codeman route with login
-    it("Test GET /codeman route - loggin in - should work", async () => {
-        const res = await request.get("/codeman").set("Authorization", `Bearer ${token}`)
-        expect(res.status).toBe(200);
+    it("Test /logout route - should redirect", function(done) {
+        server.get("/logout")
+            .then((res) => {
+                expect(res.statusCode).toBe(302);
+            }).then(() => done())
+    })
+})
+
+describe("Test each GET route with a user logged in", function() {
+
+    it("Test that a user can log in", loginUser());
+
+    it("Test GET invalid route - should find nothing", function(done) {
+        server.get("/thisroutedoesnotexist")
+            .then((res) => {
+                expect(res.statusCode).toBe(404);
+            }).then(() => done())
     })
 
-    // Sixth test - /create route with no login
-    it("Test GET /create route - no user logged in - should redirect", async () => {
-        const res = await request.get("/create");
-        expect(res.status).toBe(300);
+    it("Test / route - should work", function(done) {
+        server.get("/")
+            .then((res) => {
+                expect(res.statusCode).toBe(200);
+            }).then(() => done())
     })
 
-    // Seventh test - /create route with login
-    it("Test GET /create route - logged in - should work", async () => {
-        const res = await request.get("/create").set("Authorization", `Bearer ${token}`)
-        expect(res.status).toBe(200);
+    it("Test /create route - should work", function(done) {
+        server.get("/create")
+            .then((res) => {
+                expect(res.statusCode).toBe(200);
+            }).then(() => done())
     })
 
-    // Eighth test - /signin route with no login
-    it("Test GET /signin route - no user logged in - should work", async () => {
-        const res = await request.get("/signin");
-        expect(res.status).toBe(200);
+    it("Test /signin route - should redirect", function(done) {
+        server.get("/signin")
+            .then((res) => {
+                expect(res.statusCode).toBe(302);
+            }).then(() => done())
     })
 
-    // Ninth test - /signin route with login
-    it("Test GET /signin route - logged in - should redirect", async () => {
-        const res = await request.get("/signin").set("Authentication", `Bearer ${token}`)
-        expect(res.status).toBe(300);
+    it("Test /logout route - should redirect", function(done) {
+        server.get("/logout")
+            .then((res) => {
+                expect(res.statusCode).toBe(302);
+            }).then(() => done())
     })
 })

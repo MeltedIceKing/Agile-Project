@@ -20,11 +20,11 @@ describe('Test codeman controller', () => {
     describe('codeman_controller.welcome', () => {
 
         it('should call res.render', () => {
-
+            req.user = {name: "test"};
             codeman_controller.welcome(req, res);
 
             expect(res.render).toHaveBeenCalled();
-            expect(res.render).toHaveBeenCalledWith('codeman/welcome');
+            expect(res.render).toHaveBeenCalledWith('codeman/welcome', {"nameUser": "test"});
         })
     });
 
@@ -37,16 +37,4 @@ describe('Test codeman controller', () => {
             expect(res.render).toHaveBeenCalledWith('codeman/create');
         })
     });
-
-    describe('codeman_controller.sigin', () => {
-
-        it('should call res.render', () => {
-            codeman_controller.signin(req, res);
-
-            expect(res.render).toHaveBeenCalled();
-            expect(res.render).toHaveBeenCalledWith('codeman/signin');
-        })
-    });
-    
-
 });

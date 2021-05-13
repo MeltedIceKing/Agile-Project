@@ -1,5 +1,3 @@
-const { database } = require("./models/userModel");
-
 let Database = [
     {
         name: "test",

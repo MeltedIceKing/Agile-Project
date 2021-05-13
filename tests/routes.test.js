@@ -7,12 +7,23 @@ const server = request.agent(app);
 const loginUser = () => {
     return function(done) {
         server.post("/signin")
-        .send({ email: "test@test.com", password: "test"})
+        .send({ "email": "test@test.com", "password": "test"})
         .expect(302)
         .expect("Location", "/welcome")
         .then(() => done());
     }
 }
+
+describe("Test each POST route with no user logged in", function() {
+
+    it("Test POST /create/created - should redirect to /signin", function(done) {
+        server.post('/create/created')
+        .send({"file-name": "test_file"})
+        .expect(302)
+        .expect("Location", "/signin")
+        .then(() => done());
+    })
+});
 
 describe("Test each GET route with no user logged in", function() {
 
@@ -49,6 +60,18 @@ describe("Test each GET route with no user logged in", function() {
             .then((res) => {
                 expect(res.statusCode).toBe(302);
             }).then(() => done())
+    })
+})
+
+describe("Test each POST route with a user logged in", function() {
+    it("Test that a user can log in", loginUser());
+
+    it("Test POST /create/created - should redirect to /welcome", function(done) {
+        server.post('/create/created')
+        .send({"file-name": "test_file"})
+        .expect(302)
+        .expect("Location", "/welcome")
+        .then(() => done());
     })
 })
 

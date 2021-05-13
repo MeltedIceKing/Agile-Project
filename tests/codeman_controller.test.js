@@ -37,4 +37,25 @@ describe('Test codeman controller', () => {
             expect(res.render).toHaveBeenCalledWith('codeman/create');
         })
     });
+
+    describe('codeman_controller.created', () => {
+
+        it("Test that when you save before entering any content you get redirected", () => {
+            req.body = {}
+            codeman_controller.created(req, res);
+
+            expect(res.redirect).toHaveBeenCalled();
+            expect(res.redirect).toHaveBeenCalledWith('/create');
+        })
+
+        it("Test that you get redirected to /welcome when clicking save after entering content", () => {
+            req.body = {
+                "file-name": "test file"
+            }
+            codeman_controller.created(req, res);
+
+            expect(res.redirect).toHaveBeenCalled();
+            expect(res.redirect).toHaveBeenCalledWith('/welcome');
+        })
+    });
 });

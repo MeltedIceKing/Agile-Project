@@ -31,6 +31,7 @@ let codeManController = {
         fileProperty = {};
 
         bodylist = JSON.parse(JSON.stringify(req.body));
+        console.log(bodylist);
 
         for (keybody in bodylist) {
             positionFileCounter += 1;

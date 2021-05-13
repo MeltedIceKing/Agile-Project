@@ -35,6 +35,8 @@ app.get("/welcome", ensureAuthenticated, codemanController.welcome);
 
 app.get("/create", ensureAuthenticated, codeManController.create);
 
+app.post("/create/created", ensureAuthenticated, codeManController.created);
+
 // Passport Routes
 app.get("/register", authController.registerSubmit);
 

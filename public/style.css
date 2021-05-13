@@ -126,7 +126,7 @@ hr {
     
 }
 
-#username, #password {
+#username, #password, #emailField, #passwordField {
     text-decoration: none;
     border-color: #F8DA45;
     border-width: 2px;

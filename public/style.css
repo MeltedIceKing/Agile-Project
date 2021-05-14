@@ -2,6 +2,7 @@
     background-color: #000000;
     color: #F8DA45;
     font-family: 'Josefin Sans', sans-serif;
+    cursor: url('./Pictures/cursor.svg'), auto;
 }
 
 .container-welcome, .container-start, .container-create {
@@ -188,4 +189,8 @@ hr {
 .label-classname, .label-propname, .label-methname {
     font-size: 25px;
     color: #ff8438;
+}
+
+button {
+    cursor: url('./Pictures/pointer.svg'), pointer;
 }

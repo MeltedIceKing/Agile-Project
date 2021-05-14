@@ -19,6 +19,7 @@
 }
 
 .container-create {
+    padding-left: 34%;
     padding-top: 50px;
     grid-template-rows: 1fr;
     grid-template-columns: 0.5fr 1fr;
@@ -52,6 +53,7 @@ a {
 }
 
 .container-create button {
+    text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -63,14 +65,6 @@ a {
 
 .add-class, .add-property, .add-method {
     margin-left: 30px;
-}
-
-.method-return-input {
-    margin-left: 21.5px;
-}
-
-.method-args-input {
-    margin-left: 24.5px;
 }
 
 h2 {
@@ -142,6 +136,10 @@ hr {
     color: #000000;
     text-decoration: none;
     border-radius: 5px;
+}
+
+.done-button, .add-file-button {
+    margin: auto;
 }
 
 .new-register-button {

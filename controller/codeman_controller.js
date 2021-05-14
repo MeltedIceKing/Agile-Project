@@ -10,12 +10,8 @@ let codeManController = {
 
     created: (req, res) => {
         loopCounter = 0;
-        fileCounter = 0;
         classCounter = 0;
-        filenameCounter = 0;
-        classnameCounter = 0;
-        positionFileCounter = 0;
-        positionClassCounter = 0;
+        positionCounter = 0;
 
         posFileList = [];
         posClassList = [];
@@ -31,44 +27,34 @@ let codeManController = {
         fileProperty = {};
 
         bodylist = JSON.parse(JSON.stringify(req.body));
-        console.log(bodylist);
 
         for (keybody in bodylist) {
-            positionFileCounter += 1;
+            positionCounter += 1;
+
             if (keybody.includes("file-name")) {
-                if (filenameCounter >= 1) {
-                    posFileList.push(positionFileCounter-1);
-                }
-                filenameCounter += 1;
+                posFileList.push(positionCounter-1);
             }
-            if (positionFileCounter == Object.keys(bodylist).length) {
-                if (posFileList.length != 0) {
-                    if (!(posFileList.includes(positionFileCounter))) {
-                        posFileList.push(positionFileCounter);
-                    }
-                }
-            }
-        }
 
-        for (classbody in bodylist) {
-            positionClassCounter += 1;
             if (keybody.includes("class-name")) {
-                if (classnameCounter >= 1) {
-                    posClassList.push(positionClassCounter-1);
+                if (classCounter >= 1) {
+                    if (posFileList.includes(positionCounter-2)){
+                        posClassList.push(positionCounter-2);
+                    } else {
+                        posClassList.push(positionCounter-1);
+                    }
                 }
-                classnameCounter += 1;
+                classCounter += 1;
             }
-            if (positionClassCounter == Object.keys(bodylist).length) {
-                if (posClassList.length != 0) {
-                    if (!(posClassList.includes(positionClassCounter))) {
-                        posClassList.push(positionClassCounter);
+
+            if (positionCounter == Object.keys(bodylist).length) {
+                if (posFileList.length != 0) {
+                    if (!(posFileList.includes(positionCounter))) {
+                        posFileList.push(positionCounter);
+                        posClassList.push(positionCounter);
                     }
                 }
             }
         }
-
-        // console.log(posFileList);
-        // console.log(posClassList);
 
         for (bodykey in bodylist) {
             loopCounter += 1;
@@ -93,7 +79,6 @@ let codeManController = {
 
                 fileProperty.name = bodylist[bodykey][0];
                 fileProperty.type = bodylist[bodykey][1];
-
                 propertyList.push(fileProperty);
 
             } else if (bodykey.includes("method-name")) {
@@ -103,24 +88,18 @@ let codeManController = {
                 fileMethod.rety = bodylist[bodykey][1];
                 fileMethod.args = bodylist[bodykey][2];
                 fileMethod.desc = bodylist[bodykey][3];
-
                 methodList.push(fileMethod);
             }
 
-            for (posic in posClassList) {
-                if (posic == loopCounter) {
-                    fileClass.properties = propertyList;
-                    fileClass.methods = methodList;
-                    classList.push(fileClass);
-                }
+            if (posClassList.includes(loopCounter)) {
+                fileClass.methods = methodList;
+                fileClass.props = propertyList;
+                classList.push(fileClass);
             }
 
-            for (posi in posFileList) {
-                if (posi == loopCounter) {
-                    fileObj.classes = classList;
-
-                    fileList.push(fileObj);
-                }
+            if (posFileList.includes(loopCounter)) {
+                fileObj.classes = classList;
+                fileList.push(fileObj);
             }
         }
         console.log(fileList);

@@ -1,0 +1,39 @@
+<div class="container-single-view">
+    <div class="main">
+        <h2>View <br> <%= projectItem.name %> </h2> </div>
+    <div class="view-file">
+        <% if (projectItem != "undefined") { %>
+            ID <%= projectItem.id %> <br>
+            Files: <% projectItem.files.forEach(function(file) { %>
+                <br> File: <%= file.name %> 
+                Desc: <%= file.desc %> <br>
+                <% if (file.classes.length != 0 ) { %>
+                    Classes: <br>
+                    <% file.classes.forEach(function(classy) { %>
+                        Class name: <%= classy.name %>
+                        Class desc: <%= classy.desc %> <br>
+
+                        <% if (classy.methods.length != 0 ) { %>
+                            Methods: <% classy.methods.forEach(function(methy) { %>
+                                Method name: <%= methy.name %>
+                                Method desc: <%= methy.desc %>
+                                Method args: <%= methy.args %>
+                                Method return type: <%= methy.rety %> <br>
+
+                            <% }) %>
+                        <% } %>
+                        <% if (classy.props.length != 0 ) { %>
+                            Properties: <% classy.props.forEach(function(propy) { %>
+                                Property name: <%= propy.name %> 
+                                Property type: <%= propy.type %>
+
+                            <% }) %>
+                        <% } %>
+                    <% }) %>
+                <% } %>
+            <% }) %>
+        <% } else { %>
+            You shouldn't see this :')
+
+        <% } %>
+    </div>

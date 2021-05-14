@@ -5,7 +5,15 @@ let codeManController = {
     },
 
     view: (req, res) => {
-        res.render("codeman/view-projects");
+        res.render("codeman/view-projects", {projects: req.user.projects});
+    },
+
+    viewOne: (req, res) => {
+        let projectToFind = req.params.id;
+        let searchResult = req.user.projects.find(function (project) {
+        return project.id == projectToFind;
+        });
+        res.render("codeman/single-view", { projectItem: searchResult});
     },
 
     create: (req, res) => {
@@ -107,6 +115,14 @@ let codeManController = {
             }
         }
         console.log(fileList);
+        projectID = req.user.projects.length+1;
+        projectName = "Project " + projectID;
+        projectObj = {
+            name: projectName,
+            id: projectID,
+            files: fileList,
+        };
+        req.user.projects.push(projectObj);
         res.redirect("/welcome");
     }
 };

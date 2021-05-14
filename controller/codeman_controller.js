@@ -4,6 +4,10 @@ let codeManController = {
         res.render("codeman/welcome", {nameUser: userName});
     },
 
+    view: (req, res) => {
+        res.render("codeman/view-projects");
+    },
+
     create: (req, res) => {
         res.render("codeman/create");
     },

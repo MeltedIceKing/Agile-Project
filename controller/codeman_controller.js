@@ -40,6 +40,12 @@ let codeManController = {
 
         bodylist = JSON.parse(JSON.stringify(req.body));
 
+        // If user has not added any content to page, redirect and exit function
+        // We should probably add a message of some kind.
+        if (Object.keys(bodylist).length == 0) {
+            return res.redirect('/create');
+        }
+
         for (keybody in bodylist) {
             positionCounter += 1;
 

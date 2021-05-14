@@ -42,6 +42,7 @@ describe('Test codeman controller', () => {
 
         it("Test that when you save before entering any content you get redirected", () => {
             req.body = {}
+            req.user = { projects: [] }
             codeman_controller.created(req, res);
 
             expect(res.redirect).toHaveBeenCalled();
@@ -52,6 +53,7 @@ describe('Test codeman controller', () => {
             req.body = {
                 "file-name": "test file"
             }
+            req.user = { projects: [] }
             codeman_controller.created(req, res);
 
             expect(res.redirect).toHaveBeenCalled();

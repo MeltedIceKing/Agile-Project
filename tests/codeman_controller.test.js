@@ -31,11 +31,11 @@ describe('Test codeman controller', () => {
     describe("codeman_controller.view", () => {
 
         it("should call res.render", () => {
-            req.user = { projects: {}}
+            req.user = { projects: []}
             codeman_controller.view(req, res);
 
             expect(res.render).toHaveBeenCalled();
-            expect(res.render).toHaveBeenCalledWith('codeman/view-projects', {projects: {}});
+            expect(res.render).toHaveBeenCalledWith('codeman/view-projects', {projects: []});
         })
     });
 

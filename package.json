@@ -1,4 +1,8 @@
 {
+  "name": "skelecode",
+  "version": "0.5.0",
+  "description": "",
+  "main": "start.js",
   "dependencies": {
     "ejs": "^3.1.6",
     "express-ejs-layouts": "^2.5.0",

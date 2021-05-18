@@ -28,6 +28,31 @@ describe('Test codeman controller', () => {
         })
     });
 
+    describe("codeman_controller.view", () => {
+
+        it("should call res.render", () => {
+            req.user = { projects: []}
+            codeman_controller.view(req, res);
+
+            expect(res.render).toHaveBeenCalled();
+            expect(res.render).toHaveBeenCalledWith('codeman/view-projects', {projects: []});
+        })
+    });
+
+    describe("codeman_controller.viewOne", () => {
+
+        it("should call res.render", () => {
+            req.user = { projects: [{
+                id: 1
+            }] }
+            req.params = { id: 1 }
+            codeman_controller.viewOne(req, res);
+
+            expect(res.render).toHaveBeenCalled();
+            expect(res.render).toHaveBeenCalledWith("codeman/single-view", { projectItem: { id: 1}});
+        })
+    });
+
     describe('codeman_controller.create', () => {
 
         it('should call res.render', () => {

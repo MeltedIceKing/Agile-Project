@@ -1,8 +1,11 @@
 language: node_js
-  node_js:
-  - "stable"
+node_js:
+- "stable"
 
 deploy:
   provider: heroku
   api_key:
-    secure: "YOUR ENCRYPTED API KEY"
+    secure: 5aa0c01b-d5f2-477b-b40d-060e959677dd
+  app: agile-dev-project
+  on:
+    repo: MeltedIceKing/Agile-Project

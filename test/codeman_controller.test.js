@@ -98,11 +98,6 @@ describe('Test codeman controller', () => {
             expect(req.user.projects).toHaveLength(1);
 
             projectObj = req.user.projects[0]
-            console.log(projectObj);
-            console.log(projectObj.files);
-            console.log(projectObj.files[0].classes)
-            console.log(projectObj.files[0].classes[0].methods)
-            console.log(projectObj.files[0].classes[0].props)
 
             // Test project name and id
             expect(projectObj.name).toEqual("Project 1");

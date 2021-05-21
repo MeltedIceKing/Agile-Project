@@ -1,6 +1,12 @@
 auth_controller = require("../controller/auth_controller");
 const { Request } = require('jest-express/lib/request');
 const { Response } = require('jest-express/lib/response');
+const fs = require("fs");
+
+jest.mock('fs', () => ({
+    ...jest.requireActual('fs'),
+    writeFileSync: jest.fn(),
+}))
 
 describe("Test auth_controller", () => {
 
@@ -57,10 +63,13 @@ describe("Test auth_controller", () => {
                 password: "password"
             };
 
+            writeFileSpy = jest.spyOn(fs, "writeFileSync");
+
             auth_controller.registerSubmit(req, res);
 
             expect(res.render).toHaveBeenCalled();
             expect(res.render).toHaveBeenCalledWith("auth/signin");
+            expect(writeFileSpy).toHaveBeenCalledTimes(1);
         })
 
         it("should not add user if email already exists", () => {

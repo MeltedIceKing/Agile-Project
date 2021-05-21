@@ -2,6 +2,12 @@
 const app = require('../index');
 const request = require('supertest');
 const server = request.agent(app);
+const fs = require("fs");
+
+jest.mock('fs', () => ({
+    ...jest.requireActual('fs'),
+    writeFileSync: jest.fn(),
+}))
 
 
 const loginUser = () => {

@@ -1,6 +1,12 @@
 const { Request } = require('jest-express/lib/request');
 const { Response } = require('jest-express/lib/response');
 const codeman_controller = require('../controller/codeman_controller');
+const fs = require("fs");
+
+jest.mock('fs', () => ({
+    ...jest.requireActual('fs'),
+    writeFileSync: jest.fn(),
+}))
 
 describe('Test codeman controller', () => {
 
@@ -65,6 +71,10 @@ describe('Test codeman controller', () => {
 
     describe('codeman_controller.created', () => {
 
+        afterEach(() => {
+            jest.clearAllMocks();
+        })
+
         it("Test that when you save before entering any content you get redirected", () => {
             req.body = {}
             req.user = { projects: [] }
@@ -79,10 +89,13 @@ describe('Test codeman controller', () => {
                 "file-name": "test file"
             }
             req.user = { projects: [] }
+            writeFileSpy = jest.spyOn(fs, "writeFileSync");
+
             codeman_controller.created(req, res);
 
             expect(res.redirect).toHaveBeenCalled();
             expect(res.redirect).toHaveBeenCalledWith('/welcome');
+            expect(writeFileSpy).toHaveBeenCalledTimes(1);
         })
 
         it("Test content of req.user after clicking save with 1 of each (file, class, property, and method)", () => {
@@ -93,6 +106,8 @@ describe('Test codeman controller', () => {
                 "method-name-0": ["test method 1", "str", "int, int", "test def"]
             }
             req.user = { projects: [] }
+            writeFileSpy = jest.spyOn(fs, "writeFileSync");
+
             codeman_controller.created(req, res);
 
             expect(req.user.projects).toHaveLength(1);
@@ -127,6 +142,7 @@ describe('Test codeman controller', () => {
             expect(projectClasses[0].props).toHaveLength(1);
             expect(projectClasses[0].props[0].name).toEqual("test property 1");
             expect(projectClasses[0].props[0].type).toEqual("private-property");
+            expect(writeFileSpy).toHaveBeenCalledTimes(1);
         })
 
         it("Test content of req.user after clicking save with unequal amounts of data", () => {
@@ -141,6 +157,8 @@ describe('Test codeman controller', () => {
                 "class-name-2": ["test class 3", "test class desc 3"]
             }
             req.user = { projects: [] }
+            writeFileSpy = jest.spyOn(fs, "writeFileSync");
+
             codeman_controller.created(req, res);
 
             expect(req.user.projects).toHaveLength(1);
@@ -187,6 +205,7 @@ describe('Test codeman controller', () => {
             expect(projectClasses[1].desc).toEqual("test class desc 3");
             expect(projectClasses[1].methods).toHaveLength(0);
             expect(projectClasses[1].props).toHaveLength(0);
+            expect(writeFileSpy).toHaveBeenCalledTimes(1);
         })
     });
 });

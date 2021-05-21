@@ -1,11 +1,13 @@
-let Database = [
-    {
-        name: "test",
-        id: 1,
-        email: "test@test.com",
-        password: "test",
-        projects: [],
-    }
-];
+const fs = require("fs");
 
-module.exports = Database;
+const fileContents = fs.readFileSync("data.json", "utf8");
+
+let Database = JSON.parse(fileContents);
+
+function saveDatabase() {
+    console.log(Database);
+    console.log("-----Stringified-----");
+    console.log(JSON.stringify);
+}
+
+module.exports = Database, saveDatabase;

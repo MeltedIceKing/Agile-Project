@@ -30,6 +30,7 @@ let authController = {
   registerSubmit: (req, res) => {
     // implement
     let userToAdd = {
+      name: req.body.name,
       id: database.length + 1,
       email: req.body.email,
       password: req.body.password,
@@ -42,7 +43,6 @@ let authController = {
         flag = 1;
         console.log('User already has this email');
         res.render("auth/register");
-        
         }
       });
     if (flag == 0){

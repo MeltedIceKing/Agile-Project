@@ -11,7 +11,6 @@ const userModel = {
     },
 
     findById: (id) => {
-        console.log(database);
         const user = database.find((user) => user.id === id);
         if (user) {
             return user;

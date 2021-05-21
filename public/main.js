@@ -2,7 +2,10 @@ const addFileButton = document.querySelector('.add-file-button');
 fileCounter = 0;    //counts amount of files created
 classCounter = 0;   //counts amount of classes created
 propCounter = 0;    //counts amount of properties created
-methodCounter = 0;  //cound amount of methods created
+methodCounter = 0;  //counts amount of methods created
+
+const divList = document.querySelectorAll("div");
+console.log(divList);
 
 // Gives the user the option to add a File with an add Class Button
 function newfile() {

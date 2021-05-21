@@ -1,0 +1,102 @@
+<div class="container-single-view">
+    <div class="main">
+        <h2>View <br> <%= projectItem.name %> </h2> </div>
+    <div class="view-file">
+        
+        <% if (projectItem != "undefined") { %>
+            <form action="/edit/page">
+                <div class="add-file">
+                    <button class="add-file-button" type="button">Add File +</button> <br>
+
+                <% projectItem.files.forEach(function(file, fileindex) { %>
+                    <div class=<%= "file-div-" + fileindex %>>
+                        
+                    <label for="file-name" class="label-filename">File name: <br>
+                        <input type="text" name=<%= "file-name-" + fileindex %> id=<%= "file-name" + fileindex %> value="<%= file.name %>">
+                    </label> <br>
+
+                    <label for="file-desc" class="label-filedesc">File Description: <br>
+                        <textarea name=<%= "file-name-" + fileindex %> id="file-desc" cols="20" rows="5"><%= file.desc %></textarea>
+                    </label> <br>
+
+                    <div class=<%= "add-class-" + fileindex %>>
+                        <button type="button" class=<%= "" + fileindex %>>Add Class +</button>
+
+                    <% if (file.classes.length != 0 ) { %>
+                        <% file.classes.forEach(function(classy, classyindex) { %>
+
+                        <div class=<%= "add-small-class-" + fileindex + classyindex %>>
+                            
+                            <label for="class-name" class="label-classname">Class name: <br>
+                                <input type="text" name=<%= "class-name-" + fileindex + classyindex %> id="class-name" value="<%= classy.name %>">
+                            </label> <br>
+
+                            <label for="class-desc" class="label-classdesc">Class Description: <br>
+                                <textarea name=<%= "class-name-" + fileindex + classyindex %> id="class-desc" cols="20" rows="5"><%= classy.desc %></textarea>
+                            </label> <br>
+                            
+                            <div class=<%= "add-property-" + fileindex + classyindex %>>
+                                <button type="button" class=<%= "" + fileindex + classyindex %>>Add Property +</button>
+
+                            <% if (classy.props.length != 0 ) { %>
+                                <% classy.props.forEach(function(propy, propyindex) { %>
+
+                                        <label for="property-name-" class="label-propname">Method name: <br>
+                                            <input type="text" class="property-input" name=<%= "property-name-" + fileindex + classyindex + propyindex %> id="property-name" value="<%= propy.name %>">
+                                        </label>
+
+                                        <label for="public-prop">Pub
+                                            <input type="checkbox" id="public-prop" value="public-property" class="create-checkbox" name=<%= "property-name-" + fileindex + classyindex + propyindex %>>
+                                        </label>
+
+                                        <label for="private-prop">Priv
+                                            <input type="checkbox" id="private-prop" value="private-property" class="create-checkbox" name=<%= "property-name-" + fileindex + classyindex + propyindex %>>
+                                        </label>
+
+                                        <label for="protected-prop">Prot
+                                            <input type="checkbox" id="protected-prop" value="protected-property" class="create-checkbox" name=<%= "property-name-" + fileindex + classyindex + propyindex %>>
+                                        </label> <br> <br>
+                                
+                                <% }) %>
+                            <% } %>
+                            </div>
+
+                            <div class=<%= "add-method-" + fileindex + classyindex %>>
+                                <button type="button" class=<%= "" + classyindex %>>Add Method +</button>
+
+                            <% if (classy.methods.length != 0 ) { %>
+                                <% classy.methods.forEach(function(methy, methyindex) { %>
+
+                                        <label for="method-name" class="label-methname">Method name: <br>
+                                            <input type="text" name=<%= "method-name-" + fileindex + classyindex + methyindex %> id="method-name" value="<%= methy.name %>">
+                                        </label> <br>
+
+                                        <label for="method-return-type" class="label-methrt">Method return type: <br>
+                                            <input type="text" name=<%= "method-name-" + fileindex + classyindex + methyindex %>" id="method-return-type" value="<%= methy.rety %>">
+                                        </label> <br>
+
+                                        <label for="method-arguments" class="label-methargs">Method arguments: <br>
+                                            <input type="text" name=<%= "method-name-" + fileindex + classyindex + methyindex %> id="method-arguments" value="<%= methy.args %>">
+                                        </label> <br>
+
+                                        <label for="method-definition" class="label-classdef">Method definition: <br>
+                                            <textarea name=<%= "method-name-" + fileindex + classyindex + methyindex %> id="class-desc" cols="20" rows="5"><%= classy.desc %></textarea>
+                                        </label> <br> <br>
+                                
+                                <% }) %>
+                            <% } %>
+                            </div>
+                            </div>
+                        <% }) %>
+                        </div>
+                    <% } %>
+                    </div>
+                    </div>
+                    <% }) %>
+                <button class="edit-button" type="submit">Save</button>
+            </form>
+        <% } else { %>
+            You shouldn't see this :')
+
+        <% } %>
+    </div>

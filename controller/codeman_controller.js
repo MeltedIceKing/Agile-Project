@@ -10,10 +10,18 @@ let codeManController = {
         res.render("codeman/view-projects", {projects: req.user.projects});
     },
 
+    editOne: (req, res) => {
+        let projectToFind = req.params.id;
+        let searchResult = req.user.projects.find(function (project) {
+            return project.id == projectToFind;
+        });
+        res.render("codeman/edit-view", { projectItem: searchResult});
+    },
+
     viewOne: (req, res) => {
         let projectToFind = req.params.id;
         let searchResult = req.user.projects.find(function (project) {
-        return project.id == projectToFind;
+            return project.id == projectToFind;
         });
         res.render("codeman/single-view", { projectItem: searchResult});
     },
@@ -133,7 +141,8 @@ let codeManController = {
         req.user.projects.push(projectObj);
         saveDatabase();
         res.redirect("/welcome");
-    }
+    },
+
 };
 
 module.exports = codeManController;

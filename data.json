@@ -1,9 +1,1 @@
-[
-        {
-            "name": "test",
-            "id": 1,
-            "email": "test@test.com",
-            "password": "test",
-            "projects": []
-        }
-]
+[{"name":"test","id":1,"email":"test@test.com","password":"test","projects":[{"name":"Project 1","id":1,"files":[{"name":"asdasdd","desc":"asdasd","classes":[{"methods":[],"props":[]}]}]},{"name":"Project 2","id":2,"files":[{"name":"Hello","desc":"a;sf;asm","classes":[{"name":"asdasd","desc":"asdasd","methods":[],"props":[]}]}]},{"name":"Project 3","id":3,"files":[{"name":"File name","desc":"File Desc","classes":[]},{"name":"asdasd","desc":"asd","classes":[{"name":"asd","desc":"asdasd","methods":[{"name":"sad","rety":"asd","args":"ads","desc":"asddas"}],"props":[{"name":"sad","type":"public-property"}]}]}]},{"name":"Project 4","id":4,"files":[{"name":"sad","desc":"dasdas","classes":[{"name":"asddasads","desc":"asddsadsa","methods":[],"props":[]}]},{"name":"adsdsadsa","desc":"asdasd","classes":[{"name":"asdasasd","desc":"asdasdsa","methods":[],"props":[]}]}]}]},{"id":2,"email":"hello@hello.com","password":"hello","projects":[{"name":"Project 1","id":1,"files":[{"name":"asdasda","desc":"asdas","classes":[{"methods":[],"props":[]}]}]}]}]

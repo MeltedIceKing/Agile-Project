@@ -41,6 +41,10 @@ app.get("/view", ensureAuthenticated, codeManController.view);
 
 app.get("/view/:id", ensureAuthenticated, codeManController.viewOne);
 
+app.get("/edit/:id", ensureAuthenticated, codeManController.editOne);
+
+// app.post("/edit/page", ensureAuthenticated, codeManController);
+
 // Passport Routes
 app.get("/register", forwardAuthenticated, authController.register);
 

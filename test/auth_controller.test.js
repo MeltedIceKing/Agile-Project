@@ -52,8 +52,8 @@ describe("Test auth_controller", () => {
 
         it("should add user to fake database", () => {
             req.body = {
-                email: "bryan@test.com",
-                name: "bryan",
+                email: "faketest1234512345@test.com",
+                name: "faketest",
                 password: "password"
             };
 

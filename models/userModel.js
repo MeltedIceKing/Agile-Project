@@ -1,4 +1,4 @@
-let database = require("../database");
+let database = require("../database")[0];
 
 const userModel = {
     findOne: (email) => {

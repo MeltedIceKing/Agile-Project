@@ -1,4 +1,5 @@
-let database = require("../database");
+let database = require("../database")[0];
+const saveDatabase = require("../database")[1];
 const { getUserByEmailIdAndPassword } = require("./user_controller");
 const path = require("path");
 const { default: fetch } = require("node-fetch");
@@ -48,6 +49,7 @@ let authController = {
     if (flag == 0){
       // Push new user to database -- this should be made permanent eventually
       database.push(userToAdd);
+      saveDatabase();
       console.log("Thank you for registering!");
       res.render("auth/signin");
     }

@@ -1,3 +1,5 @@
+const saveDatabase = require("../database")[1];
+
 let codeManController = {
     welcome: (req, res) => {
         let userName = req.user.name;
@@ -129,6 +131,7 @@ let codeManController = {
             files: fileList,
         };
         req.user.projects.push(projectObj);
+        saveDatabase();
         res.redirect("/welcome");
     }
 };

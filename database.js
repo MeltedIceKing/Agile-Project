@@ -5,9 +5,8 @@ const fileContents = fs.readFileSync("data.json", "utf8");
 let Database = JSON.parse(fileContents);
 
 function saveDatabase() {
-    console.log(Database);
-    console.log("-----Stringified-----");
-    console.log(JSON.stringify);
+    const dataToSave = JSON.stringify(Database);
+    fs.writeFileSync("data.json", dataToSave, "utf8");
 }
 
-module.exports = Database, saveDatabase;
+module.exports = [Database, saveDatabase];

@@ -42,7 +42,9 @@ app.get("/view", ensureAuthenticated, codeManController.view);
 app.get("/view/:id", ensureAuthenticated, codeManController.viewOne);
 
 // Passport Routes
-app.get("/register", authController.registerSubmit);
+app.get("/register", forwardAuthenticated, authController.register);
+
+app.post("/register", forwardAuthenticated, authController.registerSubmit)
 
 app.get("/signin", forwardAuthenticated, (req, res) => {
   res.render("auth/signin");

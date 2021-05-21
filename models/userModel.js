@@ -2,19 +2,21 @@ let database = require("../database");
 
 const userModel = {
     findOne: (email) => {
+        console.log(database);
         const user = database.find((user) => user.email === email);
         if (user) {
         return user;
         }
-        throw new Error(`Couldn't find user with email: ${email}`);
+        return null;
     },
 
     findById: (id) => {
+        console.log(database);
         const user = database.find((user) => user.id === id);
         if (user) {
             return user;
-            }
-            throw new Error(`Couldn't find user with id: ${id}`);
+        }
+        return null;
     },
 };
 

@@ -1,15 +1,19 @@
 <div class="register">
     <h2>Register</h2>
     <hr>
-    <div class="register-inputs">
-        <label for="username">Email/Username</label><br>
-        <input type="text" id="username" name="username" placeholder="Enter email/username"><br>
+    <form action="/register" method="POST">
+        <div class="register-inputs">
+            <label for="email">Email</label><br>
+            <input type="text" id="emailField" name="email" placeholder="Enter email"><br>
+    
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" placeholder="Enter password">
+    
+        </div>
 
-        <label for="password">Password</label>
-        <input type="text" id="password" name="password" placeholder="Enter password">
+        <button type="submit" class="register-button" type="button">Register</button>
+    </form>
 
-    </div>
-        <button class="register-button" type="button">Register</button>
     <div>
         <a href="/signin">
         <button class="signin-page-button" type="button">Back To Sign-In</button></a>

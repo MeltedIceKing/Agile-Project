@@ -12,7 +12,6 @@ let authController = {
   register: (req, res) => {
     // check database for user email passed
     let token = false;
-    console.log(database);
     database.forEach(user => {
       if (user.email == req.query.email) {
         console.log("User email match found");
@@ -33,7 +32,6 @@ let authController = {
     let userToAdd = {
       id: database.length + 1,
       email: req.body.email,
-      name: req.body.name,
       password: req.body.password,
       projects: [],
     };
@@ -48,6 +46,7 @@ let authController = {
         }
       });
     if (flag == 0){
+      // Push new user to database -- this should be made permanent eventually
       database.push(userToAdd);
       console.log("Thank you for registering!");
       res.render("auth/signin");

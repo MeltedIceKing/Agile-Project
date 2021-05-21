@@ -6,12 +6,13 @@ describe("Test getUserByEmailIdAndPassword", () => {
         user = user_controller.getUserByEmailIdAndPassword("test@test.com", "test");
 
         expect(user).toBeDefined();
+        expect(user).not.toBe(null);
     });
 
     it("Test invalid email and password", () => {
-        expect(() => {
-            user_controller.getUserByEmailIdAndPassword("fail", "fail");
-        }).toThrow("Couldn't find user with email: fail");
+        user = user_controller.getUserByEmailIdAndPassword("fail", "fail");
+        
+        expect(user).toBe(null);
     });
 });
 
@@ -22,11 +23,12 @@ describe("Test getUserById", () => {
         user = user_controller.getUserById(1);
 
         expect(user).toBeDefined();
+        expect(user).not.toBe(null);
     });
 
     it("Test invalid user id", () => {
-        expect(() => {
-            user_controller.getUserById("invalid");
-        }).toThrow("Couldn't find user with id: invalid");
+        user = user_controller.getUserById("invalid");
+        
+        expect(user).toBe(null);
     });
 });

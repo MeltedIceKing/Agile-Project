@@ -1,0 +1,16 @@
+<div class="container-view-project">
+    <div class="main">
+        <h2>View <br> Projects</h2> </div>
+    <div class="view-file">
+        <% if (projects.length != 0) { %>
+            <% projects.forEach(function(project) { %>
+                <a href=<%= "/view/" + project.id %>>
+                    <button class="new-project" type="button" ><%= project.name %></button>
+                </a>
+
+            <% }) %>
+        <% } else { %>
+            No projects currently :(
+
+        <% } %>
+    </div>

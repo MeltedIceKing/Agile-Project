@@ -2,6 +2,7 @@
     background-color: #000000;
     color: #F8DA45;
     font-family: 'Josefin Sans', sans-serif;
+    cursor: url('./Pictures/cursor.svg'), auto;
 }
 
 .container-welcome, .container-start, .container-create {
@@ -19,6 +20,7 @@
 }
 
 .container-create {
+    padding-left: 34%;
     padding-top: 50px;
     grid-template-rows: 1fr;
     grid-template-columns: 0.5fr 1fr;
@@ -52,6 +54,7 @@ a {
 }
 
 .container-create button {
+    text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -61,7 +64,7 @@ a {
     grid-area: s;
 }
 
-.add-class-0, .add-property-0, .add-method-0  {
+.add-class, .add-property, .add-method {
     margin-left: 30px;
 }
 
@@ -89,4 +92,105 @@ h2 {
 
 .nav-skele {
     padding-top: 1.5%;
+}
+
+.sign-in {
+    box-sizing: border-box;
+    border: 2px solid #F8DA45;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+}
+
+.signin-inputs {
+    margin-top: 30px;
+    margin-left: 15px;
+    text-align: left;
+
+}
+
+hr {
+    height: 4px;
+    background-color: #F8DA45;
+    border: none;
+    border-radius: 3px;
+    width: 90%;
+    
+}
+
+#username, #password, #emailField, #passwordField {
+    text-decoration: none;
+    border-color: #F8DA45;
+    border-width: 2px;
+    border-radius: 4px;
+    width: 90%;
+    margin-bottom: 10px;
+
+}
+
+.signin-button {
+    margin-top: 10px;
+    background-color: grey;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.done-button, .add-file-button {
+    margin: auto;
+}
+
+.new-register-button {
+    border: none;
+    color: grey;
+    margin-top: 50px;
+}
+
+.register {
+    box-sizing: border-box;
+    border: 2px solid #F8DA45;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+}
+
+.register-inputs {
+    margin-top: 30px;
+    margin-left: 15px;
+    text-align: left;
+
+}
+
+.register-button {
+    margin-top: 10px;
+    background-color: grey;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.signin-page-button {
+    border: none;
+    color: grey;
+    margin-top: 50px;
+}
+
+.label-filename {
+    font-size: 30px;
+    color: #ff8438;
+}
+
+.label-classname, .label-propname, .label-methname {
+    font-size: 25px;
+    color: #ff8438;
+}
+
+button {
+    cursor: url('./Pictures/pointer.svg'), pointer;
 }

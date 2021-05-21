@@ -43,6 +43,8 @@ app.get("/view/:id", ensureAuthenticated, codeManController.viewOne);
 
 app.get("/edit/:id", ensureAuthenticated, codeManController.editOne);
 
+app.post("/edit/page/:id", ensureAuthenticated, codeManController.edited);
+
 // app.post("/edit/page", ensureAuthenticated, codeManController);
 
 // Passport Routes

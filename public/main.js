@@ -4,8 +4,20 @@ classCounter = 0;   //counts amount of classes created
 propCounter = 0;    //counts amount of properties created
 methodCounter = 0;  //counts amount of methods created
 
+// So the edit page buttons work correctly
 const divList = document.querySelectorAll("div");
-console.log(divList);
+divList.forEach((division) => {
+    divClass = division.className;
+    if (divClass.includes("file-div")) {
+        fileCounter += 1;
+    } else if (divClass.includes("add-small-class")) {
+        classCounter += 1;
+    } else if (divClass.includes("add-property")) {
+        propCounter += 1;
+    } else if (divClass.includes("add-method")) {
+        methodCounter += 1;
+    }
+});
 
 // Gives the user the option to add a File with an add Class Button
 function newfile() {

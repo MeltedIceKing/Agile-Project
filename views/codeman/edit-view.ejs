@@ -49,15 +49,15 @@
                                         </label>
 
                                         <label for="public-prop">Pub
-                                            <input type="checkbox" id="public-prop" value="public-property" class="create-checkbox" name=<%= "property-name-" + propCounter %>>
+                                            <input type="radio" id="public-prop" value="public-property" class="create-checkbox" name=<%= "property-name-" + propCounter %> <% if (propy.type == "public-property") { %> checked <% } %>>
                                         </label>
 
                                         <label for="private-prop">Priv
-                                            <input type="checkbox" id="private-prop" value="private-property" class="create-checkbox" name=<%= "property-name-" + propCounter %>>
+                                            <input type="radio" id="private-prop" value="private-property" class="create-checkbox" name=<%= "property-name-" + propCounter %> <% if (propy.type == "private-property") { %> checked <% } %>>
                                         </label>
 
                                         <label for="protected-prop">Prot
-                                            <input type="checkbox" id="protected-prop" value="protected-property" class="create-checkbox" name=<%= "property-name-" + propCounter %>>
+                                            <input type="radio" id="protected-prop" value="protected-property" class="create-checkbox" name=<%= "property-name-" + propCounter %> <% if (propy.type == "protected-property") { %> checked <% } %>>
                                         </label> <br> <br>
                                         
                                         <% propCounter += 1 %>

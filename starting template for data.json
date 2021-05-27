@@ -26,8 +26,8 @@
                                 ],
                                 "props":[
                                     {
-                                        "name":"t",
-                                        "type":"e"
+                                        "name":"test property 1",
+                                        "type":"private-property"
                                     }
                                 ]
                             }

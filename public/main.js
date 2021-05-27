@@ -163,6 +163,7 @@ function addProperty(propnumber) {
     publicPropRadio.setAttribute("id", "public-prop");
     publicPropRadio.setAttribute("name", `property-name-${propCounter}`);
     publicPropRadio.setAttribute("value", "public-property");
+    publicPropRadio.setAttribute("checked", "true");
     publicPropRadio.classList.add("create-checkbox");
     
     labelPrivateProp = document.createElement("label");

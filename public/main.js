@@ -137,7 +137,8 @@ function addClass(classnumber) {
     divSmallClass.append(divAddMethod);
     newClass.append(divSmallClass);
     newClass.append(newBreak);
-    classCounter = classCounter + 1;
+    
+    //classCounter = classCounter + 1;
 }
 
 // Adds a property and its input
@@ -197,7 +198,7 @@ function addProperty(propnumber) {
     newProperty.append(labelProtProp);
     newProperty.append(newBreak);
 
-    propCounter = propCounter + 1;
+    //propCounter = propCounter + 1;
 }
 
 //Adds a method and it's inputs and labels
@@ -261,7 +262,7 @@ function addMethod(methodnumber) {
     newMethod.append(inputMethodDef);
     newMethod.append(newBreak);
 
-    methodCounter = methodCounter + 1;
+    //methodCounter = methodCounter + 1;
 }
 
 // This waits for the user to click the newfile button

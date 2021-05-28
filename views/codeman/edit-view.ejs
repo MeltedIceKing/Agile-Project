@@ -1,6 +1,6 @@
 <div class="container-single-view">
     <div class="main">
-        <h2>View <br> <%= projectItem.name %> </h2> </div>
+        <h2>View <%= projectItem.name %> </h2> </div>
     <div class="view-file">
         <% let classCounter = 0; %>
         <% let propCounter = 0; %>
@@ -18,7 +18,7 @@
                         <input type="text" name=<%= "file-name-" + fileindex %> id=<%= "file-name" + fileindex %> value="<%= file.name %>">
                     </label> <br>
 
-                    <label for="file-desc" class="label-filedesc">File Description: <br>
+                    <label for="file-desc" class="label-filedesc">File Description: <br> 
                         <textarea name=<%= "file-name-" + fileindex %> id="file-desc" cols="20" rows="5"><%= file.desc %></textarea>
                     </label> <br>
 
@@ -39,7 +39,7 @@
                             </label> <br>
                             
                             <div class=<%= "add-property-" + classCounter %>>
-                                <button type="button" class=<%= "" + classCounter %>>Add Property +</button>
+                                <button type="button" class=<%= "" + classCounter %>>Add Property +</button> <br>
 
                             <% if (classy.props.length != 0 ) { %>
                                 <% classy.props.forEach(function(propy, propIndex) { %>
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class=<%= "add-method-" + classCounter %>>
-                                <button type="button" class=<%= "" + classCounter %>>Add Method +</button>
+                                <button type="button" class=<%= "" + classCounter %>>Add Method +</button> <br>
 
                             <% if (classy.methods.length != 0 ) { %>
                                 <% classy.methods.forEach(function(methy, methIndex) { %>

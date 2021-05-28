@@ -56,6 +56,10 @@ describe("Test auth_controller", () => {
 
     describe("Test authController.registerSubmit", () => {
 
+        afterEach(() => {
+            jest.clearAllMocks();
+        })
+
         it("should add user to fake database", () => {
             req.body = {
                 email: "faketest1234512345@test.com",
@@ -79,10 +83,13 @@ describe("Test auth_controller", () => {
                 password: "test"
             };
 
+            writeFileSpy = jest.spyOn(fs, "writeFileSync");
+
             auth_controller.registerSubmit(req, res);
 
             expect(res.render).toHaveBeenCalled();
             expect(res.render).toHaveBeenCalledWith("auth/register");
+            expect(writeFileSpy).not.toHaveBeenCalled();
         })
     })
 });

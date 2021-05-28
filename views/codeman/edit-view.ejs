@@ -1,6 +1,6 @@
 <div class="container-single-view">
     <div class="main">
-        <h2>View <%= projectItem.name %> </h2> </div>
+        <h2>Edit <%= projectItem.name %> </h2> </div>
     <div class="view-file">
         <% let classCounter = 0; %>
         <% let propCounter = 0; %>
@@ -18,9 +18,17 @@
                         <input type="text" name=<%= "file-name-" + fileindex %> id=<%= "file-name" + fileindex %> value="<%= file.name %>">
                     </label>
 
-                    <label for="completed-file">Completed
-                        <input type="checkbox" class="create-checkbox" value="completed" id="completed-file" name=<%= "file-name-" + fileindex %>>
-                    </label>
+                    <% if (file.comp == "completed") { %>
+                        <label for="completed-file">Completed
+                            <input checked type="checkbox" class="create-checkbox" value="completed" id="completed-file" name=<%= "file-name-" + fileindex %>>
+                        </label>
+
+                    <% } else { %>
+                        <label for="completed-file">Completed
+                            <input type="checkbox" class="create-checkbox" value="completed" id="completed-file" name=<%= "file-name-" + fileindex %>>
+                        </label>
+
+                    <% } %>
 
                     <button type="button" class=<%= "file-div-" + fileindex %>>Remove File -</button> <br>
 

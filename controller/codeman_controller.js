@@ -242,7 +242,6 @@ let codeManController = {
                 fileMethod.rety = bodylist[bodykey][1];
                 fileMethod.args = bodylist[bodykey][2];
                 fileMethod.desc = bodylist[bodykey][3];
-                console.log(bodylist[bodykey]);
                 methodList.push(fileMethod);
             }
 

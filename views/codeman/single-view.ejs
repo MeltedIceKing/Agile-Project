@@ -23,6 +23,9 @@
 
                 <% if (file.classes.length != 0 ) { %>
                     <% file.classes.forEach(function(classy) { %>
+
+                        <% if (classy.name != undefined) { %>
+
                         <br>
                         <h3 class="view-file-class-name">Class: <%= classy.name %></h3>
                         <h4 class="view-file-class-desc">""" <%= classy.desc %> """</h4>
@@ -41,6 +44,7 @@
                                 <h3 class="view-propy-name">Property: <%= propy.name %></h3>
                                 <h4 class="view-propy-type"><%= propy.type %></h4>
                             <% }) %>
+                        <% } %>
                         <% } %>
                     <% }) %>
                 <% } %>

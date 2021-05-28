@@ -18,6 +18,10 @@
                         <input type="text" name=<%= "file-name-" + fileindex %> id=<%= "file-name" + fileindex %> value="<%= file.name %>">
                     </label>
 
+                    <label for="completed-file">Completed
+                        <input type="checkbox" class="create-checkbox" value="completed" id="completed-file" name=<%= "file-name-" + fileindex %>>
+                    </label>
+
                     <button type="button" class=<%= "file-div-" + fileindex %>>Remove File -</button> <br>
 
                     <label for="file-desc" class="label-filedesc">File Description: <br> 

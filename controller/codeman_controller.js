@@ -92,7 +92,8 @@ let codeManController = {
                 classList = [];
 
                 fileObj.name = bodylist[bodykey][0];
-                fileObj.desc = bodylist[bodykey][1];
+                fileObj.comp = bodylist[bodykey][1];
+                fileObj.desc = bodylist[bodykey][2];
 
             } else if (bodykey.includes("class-name")) {
                 fileClass = {};
@@ -204,7 +205,8 @@ let codeManController = {
                 classList = [];
 
                 fileObj.name = bodylist[bodykey][0];
-                fileObj.desc = bodylist[bodykey][1];
+                fileObj.comp = bodylist[bodykey][1];
+                fileObj.desc = bodylist[bodykey][2];
 
             } else if (bodykey.includes("class-name")) {
                 fileClass = {};

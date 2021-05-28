@@ -8,6 +8,12 @@
             Files: <% projectItem.files.forEach(function(file) { %>
                 <br> File: <%= file.name %> 
                 Desc: <%= file.desc %> <br>
+                <% if (file.comp == "completed") { %>
+                    Completion Status: <%= file.comp %> <br>
+                <% } else { %>
+                    Completion Status: Pending <br>
+                <% } %>
+
                 <% if (file.classes.length != 0 ) { %>
                     &nbsp; <br>
                     Classes: <br>

@@ -31,6 +31,16 @@ function newfile() {
     buttonRemoveFile.setAttribute("type", "button");
     buttonRemoveFile.innerHTML = "Remove File -";
 
+    labelFileComplete = document.createElement("label");
+    labelFileComplete.setAttribute("for", "completed-file");
+    labelFileComplete.innerHTML = "Completed"
+    fileCompleteRadio = document.createElement("input");
+    fileCompleteRadio.setAttribute("type", "checkbox");
+    fileCompleteRadio.setAttribute("id", "completed-file");
+    fileCompleteRadio.setAttribute("name", `file-name-${fileCounter}`);
+    fileCompleteRadio.setAttribute("value", "completed");
+    fileCompleteRadio.classList.add("create-checkbox");
+
     labelFileName = document.createElement("label");
     labelFileName.setAttribute("for", "file-name");
     labelFileName.classList.add(`label-filename`);
@@ -70,6 +80,8 @@ function newfile() {
     divAddClass.append(newBreak);
     fileDiv.append(labelFileName);
     fileDiv.append(inputFileName);
+    fileDiv.append(fileCompleteRadio);
+    fileDiv.append(labelFileComplete);
     fileDiv.append(buttonRemoveFile);
     fileDiv.append(secMoreBreak);
     fileDiv.append(labelFileDesc);

@@ -26,6 +26,11 @@ function newfile() {
     fileDiv = document.createElement("div");
     fileDiv.classList.add(`file-div-${fileCounter}`);
 
+    buttonRemoveFile = document.createElement("button");
+    buttonRemoveFile.classList.add(`file-div-${fileCounter}`);
+    buttonRemoveFile.setAttribute("type", "button");
+    buttonRemoveFile.innerHTML = "Remove File -";
+
     labelFileName = document.createElement("label");
     labelFileName.setAttribute("for", "file-name");
     labelFileName.classList.add(`label-filename`);
@@ -65,6 +70,7 @@ function newfile() {
     divAddClass.append(newBreak);
     fileDiv.append(labelFileName);
     fileDiv.append(inputFileName);
+    fileDiv.append(buttonRemoveFile);
     fileDiv.append(secMoreBreak);
     fileDiv.append(labelFileDesc);
     fileDiv.append(oneMoreBreak);
@@ -81,6 +87,11 @@ function addClass(classnumber) {
     newBreak = document.createElement("br");
     oneMoreBreak = document.createElement("br");
     secMoreBreak = document.createElement("br");
+
+    buttonRemoveClass = document.createElement("button");
+    buttonRemoveClass.classList.add(`add-small-class-${classCounter}`);
+    buttonRemoveClass.setAttribute("type", "button");
+    buttonRemoveClass.innerHTML = "Remove Class -";
 
     divSmallClass = document.createElement("div");
     divSmallClass.classList.add(`add-small-class-${classCounter}`);
@@ -129,14 +140,15 @@ function addClass(classnumber) {
 
     divSmallClass.append(labelClassName);
     divSmallClass.append(inputClassName);
+    divSmallClass.append(buttonRemoveClass);
     divSmallClass.append(oneMoreBreak);
     divSmallClass.append(labelClassDesc);
     divSmallClass.append(secMoreBreak);
     divSmallClass.append(inputClassDesc);
     divSmallClass.append(divAddProperty);
     divSmallClass.append(divAddMethod);
+    divSmallClass.append(newBreak);
     newClass.append(divSmallClass);
-    newClass.append(newBreak);
     
     //classCounter = classCounter + 1;
 }
@@ -145,6 +157,14 @@ function addClass(classnumber) {
 function addProperty(propnumber) {
     let newProperty = document.querySelector(`.add-property-${propnumber}`);
     newBreak = document.createElement("br");
+
+    buttonRemoveProperty = document.createElement("button");
+    buttonRemoveProperty.classList.add(`add-small-property-${propCounter}`);
+    buttonRemoveProperty.setAttribute("type", "button");
+    buttonRemoveProperty.innerHTML = "Remove Property -";
+
+    smallProperty = document.createElement("div");
+    smallProperty.classList.add(`add-small-property-${propCounter}`);
 
     labelPropertyName = document.createElement("label");
     labelPropertyName.setAttribute("for", "property-name");
@@ -188,15 +208,17 @@ function addProperty(propnumber) {
     protPropRadio.setAttribute("value", "protected-property");
     protPropRadio.classList.add("create-checkbox");
 
-    newProperty.append(labelPropertyName);
-    newProperty.append(inputPropertyName);
-    newProperty.append(publicPropRadio);
-    newProperty.append(labelPublicProp);
-    newProperty.append(privatePropRadio);
-    newProperty.append(labelPrivateProp);
-    newProperty.append(protPropRadio);
-    newProperty.append(labelProtProp);
-    newProperty.append(newBreak);
+    smallProperty.append(labelPropertyName);
+    smallProperty.append(inputPropertyName);
+    smallProperty.append(publicPropRadio);
+    smallProperty.append(labelPublicProp);
+    smallProperty.append(privatePropRadio);
+    smallProperty.append(labelPrivateProp);
+    smallProperty.append(protPropRadio);
+    smallProperty.append(labelProtProp);
+    smallProperty.append(buttonRemoveProperty);
+    smallProperty.append(newBreak);
+    newProperty.append(smallProperty);
 
     //propCounter = propCounter + 1;
 }
@@ -207,6 +229,14 @@ function addMethod(methodnumber) {
     newBreak = document.createElement("br");
     oneMoreBreak = document.createElement("br");
     newPar = document.createElement("p");
+
+    buttonRemoveMethod = document.createElement("button");
+    buttonRemoveMethod.classList.add(`add-small-method-${methodCounter}`);
+    buttonRemoveMethod.setAttribute("type", "button");
+    buttonRemoveMethod.innerHTML = "Remove Method -";
+
+    smallMethod = document.createElement("div");
+    smallMethod.classList.add(`add-small-method-${methodCounter}`);
 
     labelMethodName = document.createElement("label");
     labelMethodName.setAttribute("for", "method-name");
@@ -251,16 +281,18 @@ function addMethod(methodnumber) {
     inputMethodDef.setAttribute("name", `method-name-${methodCounter}`);
     inputMethodDef.classList.add("method-def-input");
 
-    newMethod.append(labelMethodName);
-    newMethod.append(inputMethodName);
-    newMethod.append(labelMethodRT);
-    newMethod.append(inputMethodRT);
-    newMethod.append(labelMethodArgs);
-    newMethod.append(inputMethodArgs);
-    newMethod.append(labelMethodDef);
-    newMethod.append(oneMoreBreak);
-    newMethod.append(inputMethodDef);
-    newMethod.append(newBreak);
+    smallMethod.append(labelMethodName);
+    smallMethod.append(inputMethodName);
+    smallMethod.append(buttonRemoveMethod);
+    smallMethod.append(labelMethodRT);
+    smallMethod.append(inputMethodRT);
+    smallMethod.append(labelMethodArgs);
+    smallMethod.append(inputMethodArgs);
+    smallMethod.append(labelMethodDef);
+    smallMethod.append(oneMoreBreak);
+    smallMethod.append(inputMethodDef);
+    smallMethod.append(newBreak);
+    newMethod.append(smallMethod);
 
     //methodCounter = methodCounter + 1;
 }
@@ -286,5 +318,25 @@ docAddFile.addEventListener('click', (e) => {
         methodNum = e.target.className.substring(0,1);
         addMethod(methodNum);
         methodCounter = methodCounter + 1;
+    }
+    if (AddFileInnerHtml == "Remove File -"){
+        removeFileName = e.target.className;
+        fileToRemove = document.getElementsByClassName(removeFileName);
+        fileToRemove[0].remove();
+    }
+    if (AddFileInnerHtml == "Remove Class -"){
+        removeFileClass = e.target.className;
+        classToRemove = document.getElementsByClassName(removeFileClass);
+        classToRemove[0].remove();
+    }
+    if (AddFileInnerHtml == "Remove Property -"){
+        removeFileProp = e.target.className;
+        propToRemove = document.getElementsByClassName(removeFileProp);
+        propToRemove[0].remove();
+    }
+    if (AddFileInnerHtml == "Remove Method -"){
+        removeFileMeth = e.target.className;
+        methToRemove = document.getElementsByClassName(removeFileMeth);
+        methToRemove[0].remove();
     }
 });

@@ -228,6 +228,7 @@ let codeManController = {
                 fileMethod.rety = bodylist[bodykey][1];
                 fileMethod.args = bodylist[bodykey][2];
                 fileMethod.desc = bodylist[bodykey][3];
+                console.log(bodylist[bodykey]);
                 methodList.push(fileMethod);
             }
 
@@ -249,7 +250,6 @@ let codeManController = {
             id: projectID,
             files: fileList,
         };
-
         noIdObj = req.user.projects.filter(projectItem => projectItem.id != req.params.id);
         noIdObj.push(projectObj);
         req.user.projects = noIdObj;

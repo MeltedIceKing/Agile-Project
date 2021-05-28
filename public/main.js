@@ -137,6 +137,8 @@ function addClass(classnumber) {
     divSmallClass.append(divAddMethod);
     newClass.append(divSmallClass);
     newClass.append(newBreak);
+    
+    //classCounter = classCounter + 1;
 }
 
 // Adds a property and its input
@@ -159,17 +161,18 @@ function addProperty(propnumber) {
     labelPublicProp.setAttribute("for", "public-prop");
     labelPublicProp.innerHTML = "Pub"
     publicPropRadio = document.createElement("input");
-    publicPropRadio.setAttribute("type", "checkbox");
+    publicPropRadio.setAttribute("type", "radio");
     publicPropRadio.setAttribute("id", "public-prop");
     publicPropRadio.setAttribute("name", `property-name-${propCounter}`);
     publicPropRadio.setAttribute("value", "public-property");
+    publicPropRadio.setAttribute("checked", "true");
     publicPropRadio.classList.add("create-checkbox");
     
     labelPrivateProp = document.createElement("label");
     labelPrivateProp.setAttribute("for", "private-prop");
     labelPrivateProp.innerHTML = "Priv"
     privatePropRadio = document.createElement("input");
-    privatePropRadio.setAttribute("type", "checkbox");
+    privatePropRadio.setAttribute("type", "radio");
     privatePropRadio.setAttribute("id", "private-prop");
     privatePropRadio.setAttribute("name", `property-name-${propCounter}`);
     privatePropRadio.setAttribute("value", "private-property");
@@ -179,7 +182,7 @@ function addProperty(propnumber) {
     labelProtProp.setAttribute("for", "prot-prop");
     labelProtProp.innerHTML = "Prot"
     protPropRadio = document.createElement("input");
-    protPropRadio.setAttribute("type", "checkbox");
+    protPropRadio.setAttribute("type", "radio");
     protPropRadio.setAttribute("id", "prot-prop");
     protPropRadio.setAttribute("name", `property-name-${propCounter}`);
     protPropRadio.setAttribute("value", "protected-property");
@@ -194,6 +197,8 @@ function addProperty(propnumber) {
     newProperty.append(protPropRadio);
     newProperty.append(labelProtProp);
     newProperty.append(newBreak);
+
+    //propCounter = propCounter + 1;
 }
 
 //Adds a method and it's inputs and labels
@@ -256,6 +261,8 @@ function addMethod(methodnumber) {
     newMethod.append(oneMoreBreak);
     newMethod.append(inputMethodDef);
     newMethod.append(newBreak);
+
+    //methodCounter = methodCounter + 1;
 }
 
 // This waits for the user to click the newfile button

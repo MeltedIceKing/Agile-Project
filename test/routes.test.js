@@ -7,6 +7,7 @@ const fs = require("fs");
 jest.mock('fs', () => ({
     ...jest.requireActual('fs'),
     writeFileSync: jest.fn(),
+    writeFile: jest.fn(),
 }))
 
 
@@ -29,43 +30,82 @@ describe("Test each POST route with no user logged in", function() {
         .expect("Location", "/signin")
         .then(() => done());
     })
+
+    it("Test POST /edit/page/1 - should redirect to /signin", function(done) {
+        server.post("/edit/page/1")
+        .send({"file-name": "test_file"})
+        .expect(302)
+        .expect("Location", "/signin")
+        .then(() => done());
+    })
+
+    it("Test POST /register route - should work", function(done) {
+        server.post("/register")
+        .send({"email": "fake@fake.com", "password": "fake"})
+        .expect(200)
+        .then(() => done());
+    })
 });
 
 describe("Test each GET route with no user logged in", function() {
 
     it("Test GET invalid route - should find nothing", function(done) {
         server.get("/thisroutedoesnotexist")
-            .then((res) => {
-                expect(res.statusCode).toBe(404);
-            }).then(() => done())
+        .expect(404)
+        .then(() => done())
     })
 
-    it("Test / route - should work", function(done) {
+    it("Test GET / route - should work", function(done) {
         server.get("/")
-            .then((res) => {
-                expect(res.statusCode).toBe(200);
-            }).then(() => done())
+        .expect(200)
+        .then(() => done())
     })
 
-    it("Test /create route - should redirect", function(done) {
+    it("Test GET /create route - should redirect", function(done) {
         server.get("/create")
-            .then((res) => {
-                expect(res.statusCode).toBe(302);
-            }).then(() => done())
+        .expect(302)
+        .expect("Location", "/signin")
+        .then(() => done())
     })
 
-    it("Test /signin route - should work", function(done) {
+    it("Test GET /signin route - should work", function(done) {
         server.get("/signin")
-            .then((res) => {
-                expect(res.statusCode).toBe(200);
-            }).then(() => done())
+        .expect(200)
+        .then(() => done())
     })
 
-    it("Test /logout route - should redirect", function(done) {
+    it("Test GET /register route - should work", function(done) {
+        server.get("/register")
+        .expect(200)
+        .then(() => done())
+    })
+
+    it("Test GET /logout route - should redirect", function(done) {
         server.get("/logout")
-            .then((res) => {
-                expect(res.statusCode).toBe(302);
-            }).then(() => done())
+        .expect(302)
+        .expect("Location", "/")
+        .then(() => done())
+    })
+
+    it("Test GET /view route - should redirect", function(done) {
+        server.get("/view")
+        .expect(302)
+        .expect("Location", "/signin")
+        .then(() => done())
+    })
+
+    it("Test GET /view/1 route - should redirect", function(done) {
+        server.get("/view/1")
+        .expect(302)
+        .expect("Location", "/signin")
+        .then(() => done())
+    })
+
+    it("Test GET /edit/1 route - should redirect", function(done) {
+        server.get("/edit/1")
+        .expect(302)
+        .expect("Location", "/signin")
+        .then(() => done())
     })
 })
 
@@ -79,6 +119,22 @@ describe("Test each POST route with a user logged in", function() {
         .expect("Location", "/welcome")
         .then(() => done());
     })
+
+    it("Test POST /edit/page/1 - should redirect to /view/1", function(done) {
+        server.post("/edit/page/1")
+        .send({"file-name": "test_file"})
+        .expect(302)
+        .expect("Location", "/view/1")
+        .then(() => done());
+    })
+
+    it("Test POST /register route - should redirect", function(done) {
+        server.post("/register")
+        .send({"email": "fake@fake.com", "password": "fake"})
+        .expect(302)
+        .expect("Location", "/welcome")
+        .then(() => done());
+    })
 })
 
 describe("Test each GET route with a user logged in", function() {
@@ -87,36 +143,58 @@ describe("Test each GET route with a user logged in", function() {
 
     it("Test GET invalid route - should find nothing", function(done) {
         server.get("/thisroutedoesnotexist")
-            .then((res) => {
-                expect(res.statusCode).toBe(404);
-            }).then(() => done())
+        .expect(404)
+        .then(() => done())
     })
 
-    it("Test / route - should work", function(done) {
+    it("Test GET / route - should work", function(done) {
         server.get("/")
-            .then((res) => {
-                expect(res.statusCode).toBe(200);
-            }).then(() => done())
+        .expect(200)
+        .then(() => done())
     })
 
-    it("Test /create route - should work", function(done) {
+    it("Test GET /create route - should work", function(done) {
         server.get("/create")
-            .then((res) => {
-                expect(res.statusCode).toBe(200);
-            }).then(() => done())
+        .expect(200)
+        .then(() => done())
     })
 
-    it("Test /signin route - should redirect", function(done) {
+    it("Test GET /signin route - should redirect", function(done) {
         server.get("/signin")
-            .then((res) => {
-                expect(res.statusCode).toBe(302);
-            }).then(() => done())
+        .expect(302)
+        .expect("Location", "/welcome")
+        .then(() => done());
     })
 
-    it("Test /logout route - should redirect", function(done) {
+    it("Test GET /register route - should redirect", function(done) {
+        server.get("/register")
+        .expect(302)
+        .expect("Location", "/welcome")
+        .then(() => done());
+    })
+
+    it("Test GET /view route - should work", function(done) {
+        server.get("/view")
+        .expect(200)
+        .then(() => done())
+    })
+
+    it("Test GET /view/1 route - should work", function(done) {
+        server.get("/view/1")
+        .expect(200)
+        .then(() => done())
+    })
+
+    it("Test GET /edit/1 route - should work", function(done) {
+        server.get("/edit/1")
+        .expect(200)
+        .then(() => done())
+    })
+
+    it("Test GET /logout route - should redirect", function(done) {
         server.get("/logout")
-            .then((res) => {
-                expect(res.statusCode).toBe(302);
-            }).then(() => done())
+        .expect(302)
+        .expect("Location", "/")
+        .then(() => done())
     })
 })

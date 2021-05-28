@@ -98,7 +98,7 @@ let codeManController = {
                 } else {
                     fileObj.name = bodylist[bodykey][0];
                     fileObj.comp = "Pending"
-                    fileObj.desc = bodylist[bodykey][2];
+                    fileObj.desc = bodylist[bodykey][1];
                 }
 
             } else if (bodykey.includes("class-name")) {
@@ -217,7 +217,7 @@ let codeManController = {
                 } else {
                     fileObj.name = bodylist[bodykey][0];
                     fileObj.comp = "Pending"
-                    fileObj.desc = bodylist[bodykey][2];
+                    fileObj.desc = bodylist[bodykey][1];
                 }
 
             } else if (bodykey.includes("class-name")) {

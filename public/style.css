@@ -119,6 +119,51 @@ h2 {
     text-align: center;
 }
 
+.single-file {
+    box-sizing: border-box;
+    border: 2px solid #F8DA45;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 350px;
+    /* height: 350px; */
+}
+
+.status-completed {
+    color: lightgreen;
+}
+
+.status-pending {
+    color: pink;
+}
+
+.view-file-desc {
+    color: gray;
+}
+
+.view-file-class-name {
+    padding-left: 25px;
+}
+
+.view-file-class-desc {
+    color: gray;
+    padding-left: 25px;
+}
+
+.view-method-name, .view-propy-name {
+    padding-left: 50px;
+}
+
+.view-method-desc {
+    color: gray;
+    padding-left: 50px;
+}
+
+.view-method-rety, .view-propy-type {
+    color: mediumvioletred;
+    padding-left: 75px;
+}
+
 .signin-inputs {
     margin-top: 30px;
     margin-left: 15px;
@@ -170,7 +215,7 @@ hr {
     margin: auto;
     margin-top: 50px;
     width: 300px;
-    height: 350px;
+    height: 400px;
     text-align: center;
 }
 

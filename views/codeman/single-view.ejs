@@ -1,49 +1,51 @@
 <div class="container-single-view">
     <div class="main">
-        <h2>View <br> <%= projectItem.name %> </h2> </div>
+        <h2>View <br> <%= projectItem.name %> 
+            <a href=<%= "/edit/" + projectItem.id %>>
+                <button class="edit-button" type="submit">Edit</button>
+            </a>
+        </h2> </div>
     <div class="view-file">
         <% if (projectItem != "undefined") { %>
-            Project #<%= projectItem.id %> <br>
-            &nbsp; <br>
-            Files: <% projectItem.files.forEach(function(file) { %>
-                <br> File: <%= file.name %> 
-                Desc: <%= file.desc %> <br>
-                <% if (file.comp == "completed") { %>
-                    Completion Status: Completed <br>
-                <% } else { %>
-                    Completion Status: Pending <br>
-                <% } %>
+            <% projectItem.files.forEach(function(file) { %>
+                <div class="single-file">
+
+                    <% if (file.comp == "completed") { %>
+                        <span class="status-completed">Completion Status: Completed <br></span>
+                        
+                    <% } else { %>
+                        <span class="status-pending">Completion Status: Pending <br></span>
+                    <% } %>
+
+                <br>
+                <h3 class="view-file-name"> <%= file.name %> </h3>
+                <h4 class="view-file-desc">""" <%= file.desc %> """</h4>
 
                 <% if (file.classes.length != 0 ) { %>
-                    &nbsp; <br>
-                    Classes: <br>
                     <% file.classes.forEach(function(classy) { %>
-                        Class name: <%= classy.name %>
-                        Class desc: <%= classy.desc %> <br>
+                        <br>
+                        <h3 class="view-file-class-name">Class: <%= classy.name %></h3>
+                        <h4 class="view-file-class-desc">""" <%= classy.desc %> """</h4>
 
                         <% if (classy.methods.length != 0 ) { %>
-                            &nbsp; <br>
-                            Methods: <% classy.methods.forEach(function(methy) { %>
-                                Method name: <%= methy.name %>
-                                Method desc: <%= methy.desc %>
-                                Method args: <%= methy.args %>
-                                Method return type: <%= methy.rety %> <br>
+                            <% classy.methods.forEach(function(methy) { %>
+                                <h3 class="view-method-name">Method: <%= methy.name %> (<%= methy.args %>)</h3>
+                                <h4 class="view-method-desc">""" <%= methy.desc %> """</h4>
+                                <h4 class="view-method-rety"><%= methy.rety %></h4>
 
                             <% }) %>
                         <% } %>
                         <% if (classy.props.length != 0 ) { %>
                             &nbsp; <br>
-                            Properties: <% classy.props.forEach(function(propy) { %>
-                                Property name: <%= propy.name %> 
-                                Property type: <%= propy.type %> <br>
+                            <% classy.props.forEach(function(propy) { %>
+                                <h3 class="view-propy-name">Property: <%= propy.name %></h3>
+                                <h4 class="view-propy-type"><%= propy.type %></h4>
                             <% }) %>
                         <% } %>
                     <% }) %>
                 <% } %>
+            </div>
             <% }) %>
-            <a href=<%= "/edit/" + projectItem.id %>>
-                <button class="edit-button" type="submit">Edit</button>
-            </a>
             
         <% } else { %>
             You shouldn't see this :')

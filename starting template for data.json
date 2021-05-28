@@ -1,9 +1,0 @@
-[
-        {
-            "name": "test",
-            "id": 1,
-            "email": "test@test.com",
-            "password": "test",
-            "projects": []
-        }
-]

@@ -1,7 +1,12 @@
 auth_controller = require("../controller/auth_controller");
 const { Request } = require('jest-express/lib/request');
 const { Response } = require('jest-express/lib/response');
+const createJSON = require("../database.js")[2];
 const fs = require("fs");
+
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 jest.mock('fs', () => ({
     ...jest.requireActual('fs'),
@@ -56,6 +61,10 @@ describe("Test auth_controller", () => {
 
     describe("Test authController.registerSubmit", () => {
 
+        afterEach(() => {
+            jest.clearAllMocks();
+        })
+
         it("should add user to fake database", () => {
             req.body = {
                 email: "faketest1234512345@test.com",
@@ -79,10 +88,13 @@ describe("Test auth_controller", () => {
                 password: "test"
             };
 
+            writeFileSpy = jest.spyOn(fs, "writeFileSync");
+
             auth_controller.registerSubmit(req, res);
 
             expect(res.render).toHaveBeenCalled();
             expect(res.render).toHaveBeenCalledWith("auth/register");
+            expect(writeFileSpy).not.toHaveBeenCalled();
         })
     })
 });

@@ -19,13 +19,8 @@
             "m";
 }
 
-.container-create {
-    padding-left: 34%;
+.container-create > form {
     padding-top: 50px;
-    grid-template-rows: 1fr;
-    grid-template-columns: 0.5fr 1fr;
-    grid-template-areas: 
-            "m s";
 }
 
 a {
@@ -48,8 +43,11 @@ a {
     height: 120px;
 }
 
+.container-create > #file-desc{
+    width: 300px;
+}
+
 .main {
-    grid-area: m;
     text-align: center;
 }
 
@@ -60,8 +58,16 @@ a {
     font-size: 20px;
 }
 
-.add-file {
-    grid-area: s;
+form textarea {
+    width: 280px;
+}
+
+[id^="file-name"], [id^="class-name"], [id^="method-name"] {
+    width: 140px;
+}
+
+[id^="method-return-type"], [id^="method-arguments"] {
+    width: 300px;
 }
 
 .add-class, .add-property, .add-method {
@@ -90,6 +96,14 @@ h2 {
     border-radius: 4px;
 }
 
+.container-view-project > .view-file {
+    text-align: center;
+}
+
+.container-single-view {
+    margin-left: 30px;
+}
+
 .nav-skele {
     padding-top: 1.5%;
 }
@@ -103,6 +117,51 @@ h2 {
     width: 300px;
     height: 350px;
     text-align: center;
+}
+
+.single-file {
+    box-sizing: border-box;
+    border: 2px solid #F8DA45;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    width: 350px;
+    /* height: 350px; */
+}
+
+.status-completed {
+    color: lightgreen;
+}
+
+.status-pending {
+    color: pink;
+}
+
+.view-file-desc {
+    color: gray;
+}
+
+.view-file-class-name {
+    padding-left: 25px;
+}
+
+.view-file-class-desc {
+    color: gray;
+    padding-left: 25px;
+}
+
+.view-method-name, .view-propy-name {
+    padding-left: 50px;
+}
+
+.view-method-desc {
+    color: gray;
+    padding-left: 50px;
+}
+
+.view-method-rety, .view-propy-type {
+    color: mediumvioletred;
+    padding-left: 75px;
 }
 
 .signin-inputs {
@@ -121,7 +180,7 @@ hr {
     
 }
 
-#username, #password, #emailField, #passwordField {
+#username, #password, #emailField, #passwordField, #nameField {
     text-decoration: none;
     border-color: #F8DA45;
     border-width: 2px;
@@ -156,7 +215,7 @@ hr {
     margin: auto;
     margin-top: 50px;
     width: 300px;
-    height: 350px;
+    height: 400px;
     text-align: center;
 }
 

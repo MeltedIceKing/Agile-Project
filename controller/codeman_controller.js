@@ -90,9 +90,16 @@ let codeManController = {
             if (bodykey.includes("file-name")) {
                 fileObj = {};
                 classList = [];
-
-                fileObj.name = bodylist[bodykey][0];
-                fileObj.desc = bodylist[bodykey][1];
+                
+                if (bodylist[bodykey].length >= 3) {
+                    fileObj.name = bodylist[bodykey][0];
+                    fileObj.comp = bodylist[bodykey][1];
+                    fileObj.desc = bodylist[bodykey][2];
+                } else {
+                    fileObj.name = bodylist[bodykey][0];
+                    fileObj.comp = "Pending"
+                    fileObj.desc = bodylist[bodykey][1];
+                }
 
             } else if (bodykey.includes("class-name")) {
                 fileClass = {};
@@ -203,8 +210,15 @@ let codeManController = {
                 fileObj = {};
                 classList = [];
 
-                fileObj.name = bodylist[bodykey][0];
-                fileObj.desc = bodylist[bodykey][1];
+                if (bodylist[bodykey].length >= 3) {
+                    fileObj.name = bodylist[bodykey][0];
+                    fileObj.comp = bodylist[bodykey][1];
+                    fileObj.desc = bodylist[bodykey][2];
+                } else {
+                    fileObj.name = bodylist[bodykey][0];
+                    fileObj.comp = "Pending"
+                    fileObj.desc = bodylist[bodykey][1];
+                }
 
             } else if (bodykey.includes("class-name")) {
                 fileClass = {};
@@ -249,7 +263,6 @@ let codeManController = {
             id: projectID,
             files: fileList,
         };
-
         noIdObj = req.user.projects.filter(projectItem => projectItem.id != req.params.id);
         noIdObj.push(projectObj);
         req.user.projects = noIdObj;

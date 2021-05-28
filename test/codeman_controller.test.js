@@ -2,6 +2,11 @@ const { Request } = require('jest-express/lib/request');
 const { Response } = require('jest-express/lib/response');
 const codeman_controller = require('../controller/codeman_controller');
 const fs = require("fs");
+const createJSON = require("../database.js")[2];
+
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 jest.mock('fs', () => ({
     ...jest.requireActual('fs'),
@@ -147,12 +152,12 @@ describe('Test codeman controller', () => {
 
         it("Test content of req.user after clicking save with unequal amounts of data", () => {
             req.body = {
-                "file-name-0": ["test file 1", "test file desc 1"],
+                "file-name-0": ["test file 1", "completed", "test file desc 1"],
                 "file-name-1": ["test file 2", "test file desc 2"],
                 "class-name-0": ["test class 1", "test class desc 1"],
                 "property-name-0": ["test property 1", "private-property"],
                 "method-name-0": ["test method 1", "str", "int, int", "test def"],
-                "file-name-2": ["test file 3", "test file desc 3"],
+                "file-name-2": ["test file 3", "completed", "test file desc 3"],
                 "class-name-1": ["test class 2", "test class desc 2"],
                 "class-name-2": ["test class 3", "test class desc 3"]
             }

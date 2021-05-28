@@ -1,6 +1,6 @@
 <div class="container-single-view">
     <div class="main">
-        <h2>View <br> <%= projectItem.name %> </h2> </div>
+        <h2>Edit <%= projectItem.name %> </h2> </div>
     <div class="view-file">
         <% let classCounter = 0; %>
         <% let propCounter = 0; %>
@@ -16,9 +16,23 @@
                         
                     <label for="file-name" class="label-filename">File name: <br>
                         <input type="text" name=<%= "file-name-" + fileindex %> id=<%= "file-name" + fileindex %> value="<%= file.name %>">
-                    </label> <br>
+                    </label>
 
-                    <label for="file-desc" class="label-filedesc">File Description: <br>
+                    <% if (file.comp == "completed") { %>
+                        <label for="completed-file">Completed
+                            <input checked type="checkbox" class="create-checkbox" value="completed" id="completed-file" name=<%= "file-name-" + fileindex %>>
+                        </label>
+
+                    <% } else { %>
+                        <label for="completed-file">Completed
+                            <input type="checkbox" class="create-checkbox" value="completed" id="completed-file" name=<%= "file-name-" + fileindex %>>
+                        </label>
+
+                    <% } %>
+
+                    <button type="button" class=<%= "file-div-" + fileindex %>>Remove File -</button> <br>
+
+                    <label for="file-desc" class="label-filedesc">File Description: <br> 
                         <textarea name=<%= "file-name-" + fileindex %> id="file-desc" cols="20" rows="5"><%= file.desc %></textarea>
                     </label> <br>
 
@@ -32,51 +46,59 @@
                             
                             <label for="class-name" class="label-classname">Class name: <br>
                                 <input type="text" name=<%= "class-name-" + classCounter %> id="class-name" value="<%= classy.name %>">
-                            </label> <br>
+                            </label> 
+
+                            <button type="button" class=<%= "add-small-class-" + classCounter %>>Remove Class -</button> <br>
 
                             <label for="class-desc" class="label-classdesc">Class Description: <br>
                                 <textarea name=<%= "class-name-" + classCounter %> id="class-desc" cols="20" rows="5"><%= classy.desc %></textarea>
                             </label> <br>
                             
                             <div class=<%= "add-property-" + classCounter %>>
-                                <button type="button" class=<%= "" + classCounter %>>Add Property +</button>
+                                <button type="button" class=<%= "" + classCounter %>>Add Property +</button> <br>
 
                             <% if (classy.props.length != 0 ) { %>
                                 <% classy.props.forEach(function(propy, propIndex) { %>
+                                    <div class=<%= "add-small-property-" + propCounter %>>
 
-                                        <label for="property-name-" class="label-propname">Method name: <br>
+                                        <label for="property-name-" class="label-propname">Property name: <br>
                                             <input type="text" class="property-input" name=<%= "property-name-" + propCounter %> id="property-name" value="<%= propy.name %>">
                                         </label>
 
                                         <label for="public-prop">Pub
-                                            <input type="checkbox" id="public-prop" value="public-property" class="create-checkbox" name=<%= "property-name-" + propCounter %>>
+                                            <input type="radio" id="public-prop" value="public-property" class="create-checkbox" name=<%= "property-name-" + propCounter %> <% if (propy.type == "public-property") { %> checked <% } %>>
                                         </label>
 
                                         <label for="private-prop">Priv
-                                            <input type="checkbox" id="private-prop" value="private-property" class="create-checkbox" name=<%= "property-name-" + propCounter %>>
+                                            <input type="radio" id="private-prop" value="private-property" class="create-checkbox" name=<%= "property-name-" + propCounter %> <% if (propy.type == "private-property") { %> checked <% } %>>
                                         </label>
 
                                         <label for="protected-prop">Prot
-                                            <input type="checkbox" id="protected-prop" value="protected-property" class="create-checkbox" name=<%= "property-name-" + propCounter %>>
+                                            <input type="radio" id="protected-prop" value="protected-property" class="create-checkbox" name=<%= "property-name-" + propCounter %> <% if (propy.type == "protected-property") { %> checked <% } %>>
                                         </label> <br> <br>
                                         
-                                        <% propCounter += 1 %>
+                                        <button type="button" class=<%= "add-small-property-" + propCounter %>>Remove Property -</button> <br>
+                                    </div>
+                                    <% propCounter += 1 %>
                                 <% }) %>
                             <% } %>
                             </div>
 
                             <div class=<%= "add-method-" + classCounter %>>
-                                <button type="button" class=<%= "" + classCounter %>>Add Method +</button>
+                                <button type="button" class=<%= "" + classCounter %>>Add Method +</button> <br>
 
                             <% if (classy.methods.length != 0 ) { %>
                                 <% classy.methods.forEach(function(methy, methIndex) { %>
+                                    <div class=<%= "add-small-method-" + propCounter %>>
 
                                         <label for="method-name" class="label-methname">Method name: <br>
                                             <input type="text" name=<%= "method-name-" + methodCounter %> id="method-name" value="<%= methy.name %>">
-                                        </label> <br>
+                                        </label> 
+
+                                        <button type="button" class=<%= "add-small-method-" + methodCounter %>>Remove Method -</button> <br>
 
                                         <label for="method-return-type" class="label-methrt">Method return type: <br>
-                                            <input type="text" name=<%= "method-name-" + methodCounter %>" id="method-return-type" value="<%= methy.rety %>">
+                                            <input type="text" name=<%= "method-name-" + methodCounter %> id="method-return-type" value="<%= methy.rety %>">
                                         </label> <br>
 
                                         <label for="method-arguments" class="label-methargs">Method arguments: <br>
@@ -84,10 +106,11 @@
                                         </label> <br>
 
                                         <label for="method-definition" class="label-classdef">Method definition: <br>
-                                            <textarea name=<%= "method-name-" + methodCounter %> id="class-desc" cols="20" rows="5"><%= classy.desc %></textarea>
+                                            <textarea name=<%= "method-name-" + methodCounter %> id="method-definition" cols="20" rows="5"><%= classy.desc %></textarea>
                                         </label> <br> <br>
-                                        
-                                        <% methodCounter += 1 %>
+
+                                    </div>
+                                    <% methodCounter += 1 %>
                                 <% }) %>
                             <% } %>
                             </div>

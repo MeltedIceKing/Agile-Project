@@ -1,5 +1,9 @@
+const fs = require("fs");
+const createJSON = require("../database.js")[2];
 
-//const create_controller = require('../public/main');
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 const mockHTML = `
     <div class="add-file">

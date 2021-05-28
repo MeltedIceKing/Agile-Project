@@ -1,8 +1,12 @@
-
+const createJSON = require("../database.js")[2];
 const app = require('../index');
 const request = require('supertest');
 const server = request.agent(app);
 const fs = require("fs");
+
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 jest.mock('fs', () => ({
     ...jest.requireActual('fs'),

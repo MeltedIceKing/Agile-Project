@@ -1,4 +1,10 @@
 const user_controller = require("../controller/user_controller");
+const createJSON = require("../database.js")[2];
+const fs = require("fs");
+
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 describe("Test getUserByEmailIdAndPassword", () => {
 

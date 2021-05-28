@@ -2,6 +2,11 @@ const { Request } = require('jest-express/lib/request');
 const { Response } = require('jest-express/lib/response');
 const codeman_controller = require('../controller/codeman_controller');
 const fs = require("fs");
+const createJSON = require("../database.js")[2];
+
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 jest.mock('fs', () => ({
     ...jest.requireActual('fs'),

@@ -1,7 +1,12 @@
 auth_controller = require("../controller/auth_controller");
 const { Request } = require('jest-express/lib/request');
 const { Response } = require('jest-express/lib/response');
+const createJSON = require("../database.js")[2];
 const fs = require("fs");
+
+if (!fs.existsSync("data.json")) {
+    createJSON();
+}
 
 jest.mock('fs', () => ({
     ...jest.requireActual('fs'),
